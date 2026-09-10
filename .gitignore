@@ -1,0 +1,25 @@
+# Variables de entorno y credenciales
+.env
+.env.*
+
+# Dependencias
+node_modules/
+
+# Compilaciones
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
