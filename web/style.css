@@ -61,3 +61,34 @@ button {
     text-align: center;
     font-weight: bold;
 }
+
+.activo {
+    border-left: 5px solid green;
+}
+
+.inactivo {
+    border-left: 5px solid orange;
+}
+
+.estado-activo {
+    font-weight: bold;
+    color: green;
+}
+
+.estado-inactivo {
+    font-weight: bold;
+    color: orange;
+}
+
+.mensaje {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.error {
+    border: 1px solid #d9534f;
+    background: #fff5f5;
+    color: #b52b27;
+}
