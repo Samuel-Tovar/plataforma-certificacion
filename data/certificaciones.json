@@ -1,0 +1,28 @@
+{
+  "certificaciones": [
+    {
+      "codigo": "CERT-2026-0001",
+      "nombre": "Persona de Prueba Uno",
+      "organizacion": "Asociacion de Prueba",
+      "cargo": "Afiliado",
+      "estado": "ACTIVO",
+      "fechaVinculacion": "2026-01-15"
+    },
+    {
+      "codigo": "CERT-2026-0002",
+      "nombre": "Persona de Prueba Dos",
+      "organizacion": "Asociacion de Prueba",
+      "cargo": "Colaborador",
+      "estado": "ACTIVO",
+      "fechaVinculacion": "2026-03-20"
+    },
+    {
+      "codigo": "CERT-2026-0003",
+      "nombre": "Persona de Prueba Tres",
+      "organizacion": "Organizacion Ejemplo",
+      "cargo": "Afiliado",
+      "estado": "INACTIVO",
+      "fechaVinculacion": "2025-08-10"
+    }
+  ]
+}

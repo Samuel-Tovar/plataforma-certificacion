@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+.contenedor {
+    max-width: 700px;
+    margin: 100px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: #555;
+}
+
+.buscador {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.resultado {
+    margin-top: 30px;
+}
+
+.certificado {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.valido {
+    font-weight: bold;
+}
+
+.error {
+    text-align: center;
+    font-weight: bold;
+}
