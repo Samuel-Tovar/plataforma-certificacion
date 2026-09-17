@@ -3,43 +3,181 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Plataforma de Certificación</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ASEUTP | Asociación de Egresados UTP</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="contenedor">
+    <header class="header-principal">
 
-        <h1>Verificación de Certificación</h1>
-
-        <p>
-            Ingrese el código de certificación para verificar
-            la vinculación de una persona.
-        </p>
-
-        <div class="buscador">
-
-            <input
-                type="text"
-                id="codigo"
-                placeholder="Ej: CERT-2026-0001"
-            >
-
-            <button id="btnVerificar">
-                Verificar
-            </button>
-
+        <div class="logo">
+            <img src="../assets/img/logo-aseutp.png" alt="Logo ASEUTP">
         </div>
 
-        <div id="resultado" class="resultado"></div>
+        <nav class="menu-principal">
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="noticias.html">
+                Noticias y oportunidades
+            </a>
+
+            <a href="login.html">
+                Iniciar sesión
+            </a>
+
+            <a
+                href="registro.html"
+                class="boton-registro"
+            >
+                Registrarse
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-contenido">
+
+                <p class="etiqueta">
+                    Asociación de Egresados
+                </p>
+
+                <h1>
+                    Conectando egresados,
+                    oportunidades y comunidad
+                </h1>
+
+                <p class="hero-texto">
+                    Una plataforma para mantener conectados a los
+                    egresados de la Universidad Tecnológica de Pereira
+                    con noticias, convenios, proyectos y oportunidades.
+                </p>
+
+                <div class="hero-botones">
+
+                    <a
+                        href="verificacion.html"
+                        class="boton-principal"
+                    >
+                        Verificar certificación
+                    </a>
+
+                    <a
+                        href="nosotros.html"
+                        class="boton-secundario"
+                    >
+                        Conocer la asociación
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="seccion-inicio">
+
+            <h2>
+                Información para nuestros egresados
+            </h2>
+
+            <div class="tarjetas-inicio">
+
+                <article class="tarjeta">
+
+                    <h3>Noticias</h3>
+
+                    <p>
+                        Información de interés para nuestros egresados
+                        y acontecimientos relevantes de Pereira.
+                    </p>
+
+                    <a href="noticias.html">
+                        Ver noticias
+                    </a>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>Convenios</h3>
+
+                    <p>
+                        Conoce los nuevos acuerdos y beneficios
+                        disponibles para miembros de la asociación.
+                    </p>
+
+                    <a href="noticias.html">
+                        Ver convenios
+                    </a>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>Oportunidades laborales</h3>
+
+                    <p>
+                        Consulta oportunidades de empleo dirigidas
+                        a egresados y profesionales.
+                    </p>
+
+                    <a href="noticias.html">
+                        Ver oportunidades
+                    </a>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <h3>Certificación</h3>
+
+                    <p>
+                        Comprueba si una persona cuenta con una
+                        vinculación válida con la asociación.
+                    </p>
+
+                    <a href="verificacion.html">
+                        Verificar
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
 
     </main>
 
-    <script src="app.js"></script>
+
+    <footer>
+
+        <p>
+            Asociación de Egresados de la
+            Universidad Tecnológica de Pereira
+        </p>
+
+    </footer>
 
 </body>
 

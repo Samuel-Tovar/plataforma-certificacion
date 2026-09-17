@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plataforma de Certificación</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="contenedor">
+
+        <h1>Verificación de Certificación</h1>
+
+        <p>
+            Ingrese el código de certificación para verificar
+            la vinculación de una persona.
+        </p>
+
+        <div class="buscador">
+
+            <input
+                type="text"
+                id="codigo"
+                placeholder="Ej: CERT-2026-0001"
+            >
+
+            <button id="btnVerificar">
+                Verificar
+            </button>
+
+        </div>
+
+        <div id="resultado" class="resultado"></div>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

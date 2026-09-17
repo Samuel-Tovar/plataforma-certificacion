@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Registro | ASEUTP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <main class="contenedor-formulario">
+
+        <div class="formulario">
+
+            <a
+                href="index.html"
+                class="volver"
+            >
+                ← Volver al inicio
+            </a>
+
+            <h1>
+                Crear cuenta
+            </h1>
+
+            <p>
+                Completa la información para registrarte.
+            </p>
+
+
+            <form id="formRegistro">
+
+
+                <label for="nombre">
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    required
+                >
+
+
+                <label for="apellido">
+                    Apellido
+                </label>
+
+                <input
+                    type="text"
+                    id="apellido"
+                    required
+                >
+
+
+                <label for="correo">
+                    Correo institucional
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    required
+                >
+
+
+                <label for="fechaNacimiento">
+                    Fecha de nacimiento
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaNacimiento"
+                    required
+                >
+
+
+                <label for="tipoPersona">
+                    Tipo de persona
+                </label>
+
+                <select id="tipoPersona">
+
+                    <option value="natural">
+                        Persona natural
+                    </option>
+
+                    <option value="juridica">
+                        Persona jurídica
+                    </option>
+
+                </select>
+
+
+                <div id="campoGenero">
+
+                    <label for="genero">
+                        Género
+                    </label>
+
+                    <select id="genero">
+
+                        <option value="">
+                            Seleccionar
+                        </option>
+
+                        <option value="masculino">
+                            Masculino
+                        </option>
+
+                        <option value="femenino">
+                            Femenino
+                        </option>
+
+                        <option value="otro">
+                            Otro
+                        </option>
+
+                        <option value="prefiero-no-decir">
+                            Prefiero no decirlo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <label for="password">
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    required
+                >
+
+
+                <div class="requisitos-password">
+
+                    <p>
+                        La contraseña debe:
+                    </p>
+
+                    <ul>
+                        <li id="reqLongitud">
+                            Tener mínimo 8 caracteres.
+                        </li>
+
+                        <li id="reqMayuscula">
+                            Tener al menos una letra mayúscula.
+                        </li>
+
+                        <li id="reqNumero">
+                            Contener letras y números.
+                        </li>
+
+                        <li id="reqASCII">
+                            Utilizar únicamente caracteres del teclado americano.
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <label class="consentimiento">
+
+                    <input
+                        type="checkbox"
+                        id="consentimiento"
+                        required
+                    >
+
+                    <span>
+                        Autorizo el almacenamiento de mis datos
+                        en la base de datos de la Asociación de
+                        Egresados de la Universidad Tecnológica
+                        de Pereira y su utilización para el envío
+                        de información relacionada con oportunidades,
+                        ofertas y solicitudes de empleo.
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="mensajeRegistro"
+                    class="mensaje-registro"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    class="boton-principal"
+                >
+                    Registrarme
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <script src="registro.js"></script>
+
+</body>
+
+</html>

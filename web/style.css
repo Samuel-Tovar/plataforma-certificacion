@@ -92,3 +92,357 @@ button {
     background: #fff5f5;
     color: #b52b27;
 }
+
+/* ================================
+   PAGINA PRINCIPAL
+================================ */
+
+.header-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: #1f2327;
+
+    color: white;
+}
+
+
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+}
+
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.menu-principal a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.boton-registro {
+    background: #f5b51b;
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    color: #222 !important;
+}
+
+
+.hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: #f4f6f8;
+}
+
+
+.hero-contenido {
+    max-width: 850px;
+}
+
+
+.hero h1 {
+    font-size: 48px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-texto {
+    font-size: 19px;
+
+    line-height: 1.7;
+}
+
+
+.etiqueta {
+    font-weight: bold;
+}
+
+
+.hero-botones {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.boton-principal {
+    display: inline-block;
+
+    background: #222;
+
+    color: white;
+
+    border: none;
+
+    text-decoration: none;
+
+    padding: 13px 25px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+.boton-secundario {
+    display: inline-block;
+
+    background: white;
+
+    color: #222;
+
+    border: 1px solid #ccc;
+
+    text-decoration: none;
+
+    padding: 13px 25px;
+
+    border-radius: 6px;
+}
+
+
+.seccion-inicio {
+    padding: 70px 8%;
+}
+
+
+.seccion-inicio h2 {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.tarjetas-inicio {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+}
+
+
+.tarjeta {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ddd;
+}
+
+
+.tarjeta a {
+    font-weight: bold;
+}
+
+
+footer {
+    background: #1f2327;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+/* ================================
+   PAGINAS
+================================ */
+
+.pagina-contenido {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 60px 25px;
+}
+
+
+.pagina-contenido section {
+    margin-top: 50px;
+}
+
+
+/* ================================
+   FORMULARIOS
+================================ */
+
+.contenedor-formulario {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f4f6f8;
+
+    padding: 40px 20px;
+}
+
+
+.formulario {
+    width: 100%;
+    max-width: 520px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.formulario label {
+    margin-top: 18px;
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+
+.formulario input,
+.formulario select {
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+
+.formulario button {
+    margin-top: 25px;
+}
+
+
+.volver {
+    text-decoration: none;
+}
+
+
+.requisitos-password {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    background: #f6f6f6;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+
+.requisitos-password li {
+    margin-bottom: 5px;
+}
+
+
+.requisito-valido {
+    color: green;
+}
+
+
+.consentimiento {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    line-height: 1.5;
+
+    font-weight: normal !important;
+}
+
+
+.consentimiento input {
+    margin-top: 5px;
+}
+
+
+.mensaje-registro {
+    margin-top: 20px;
+
+    font-weight: bold;
+}
+
+
+.mensaje-error {
+    color: #b52b27;
+}
+
+
+.mensaje-exito {
+    color: green;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 800px) {
+
+    .header-principal {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .menu-principal {
+        flex-direction: column;
+    }
+
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+
+    .hero-botones {
+        flex-direction: column;
+    }
+
+}
