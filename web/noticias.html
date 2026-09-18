@@ -19,7 +19,12 @@
     <header class="header-principal">
 
         <div class="logo">
-            ASEUTP
+            <a href="index.html">
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+            </a>
         </div>
 
         <nav class="menu-principal">
@@ -50,66 +55,57 @@
 
     <main class="pagina-contenido">
 
-        <h1>
-            Noticias y oportunidades
-        </h1>
+        <h1>Noticias y oportunidades</h1>
+
+        <p>
+            Consulta las últimas noticias, convenios y oportunidades
+            disponibles para la comunidad de egresados.
+        </p>
 
 
-        <section>
+        <div class="filtros-publicaciones">
 
-            <h2>Noticias</h2>
+            <button
+                class="filtro activo-filtro"
+                data-tipo="todos"
+            >
+                Todos
+            </button>
 
-            <div class="tarjeta">
+            <button
+                class="filtro"
+                data-tipo="noticia"
+            >
+                Noticias
+            </button>
 
-                <h3>Noticias de la comunidad</h3>
+            <button
+                class="filtro"
+                data-tipo="convenio"
+            >
+                Convenios
+            </button>
 
-                <p>
-                    Aquí aparecerán noticias relacionadas
-                    con la asociación, Pereira y la comunidad
-                    de egresados.
-                </p>
+            <button
+                class="filtro"
+                data-tipo="empleo"
+            >
+                Empleo
+            </button>
 
-            </div>
-
-        </section>
-
-
-        <section>
-
-            <h2>Convenios</h2>
-
-            <div class="tarjeta">
-
-                <h3>Nuevos convenios</h3>
-
-                <p>
-                    Aquí se publicarán los convenios realizados
-                    por ASEUTP y sus beneficios.
-                </p>
-
-            </div>
-
-        </section>
+        </div>
 
 
-        <section>
-
-            <h2>Oportunidades laborales</h2>
-
-            <div class="tarjeta">
-
-                <h3>Ofertas para egresados</h3>
-
-                <p>
-                    Aquí se presentarán las oportunidades laborales
-                    disponibles para los egresados.
-                </p>
-
-            </div>
-
+        <section
+            id="contenedorPublicaciones"
+            class="grid-publicaciones"
+        >
         </section>
 
     </main>
+
+
+    <script src="noticias.js"></script>
 
 </body>
 

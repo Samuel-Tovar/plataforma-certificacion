@@ -1,0 +1,35 @@
+{
+  "publicaciones": [
+    {
+      "id": 1,
+      "tipo": "noticia",
+      "titulo": "Encuentro de egresados UTP 2026",
+      "descripcion": "La Asociación de Egresados realizará un encuentro para fortalecer la conexión entre profesionales y la comunidad universitaria.",
+      "fecha": "2026-09-18",
+      "imagen": "../assets/img/noticias/encuentro-egresados.jpg"
+    },
+    {
+      "id": 2,
+      "tipo": "convenio",
+      "titulo": "Nuevo convenio para egresados",
+      "descripcion": "ASEUTP anuncia un nuevo convenio con beneficios especiales para miembros de la asociación.",
+      "fecha": "2026-09-17",
+      "imagen": "../assets/img/noticias/convenio.jpg"
+    },
+    {
+      "id": 3,
+      "tipo": "empleo",
+      "titulo": "Oportunidad laboral para ingenieros",
+      "descripcion": "Empresa de la región busca profesionales en ingeniería para vinculación laboral.",
+      "fecha": "2026-09-16",
+      "imagen": "../assets/img/noticias/empleo.jpg"
+    },
+    {
+      "id": 4,
+      "tipo": "empleo",
+      "titulo": "Vacante para ingeniero electrónico",
+      "descripcion": "Empresa ubicada en Pereira busca ingeniero electrónico para su equipo de automatización.",
+      "fecha": "2026-09-18"
+    }
+  ]
+}
