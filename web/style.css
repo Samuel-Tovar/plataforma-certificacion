@@ -535,3 +535,200 @@ footer {
 
     font-size: 14px;
 }
+
+/* ================================
+   PANEL ADMINISTRATIVO
+================================ */
+
+.admin-contenedor {
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 60px 8%;
+}
+
+
+.admin-encabezado {
+    margin-bottom: 40px;
+}
+
+
+.admin-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 450px)
+        1fr;
+
+    gap: 40px;
+
+    align-items: start;
+}
+
+
+.admin-formulario,
+.admin-listado {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ddd;
+
+}
+
+
+.admin-formulario form {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.admin-formulario label {
+    margin-top: 18px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+
+.admin-formulario input,
+.admin-formulario select,
+.admin-formulario textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+.admin-botones {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.admin-publicacion {
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+}
+
+
+.acciones-admin {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+.btn-editar {
+
+    background: #1f2327;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+.btn-eliminar {
+
+    background: #b52b27;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 15px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .admin-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+.imagen-vista-previa {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+
+    margin-top: 15px;
+
+    border-radius: 8px;
+}
+
+
+.imagen-publicacion-admin {
+    width: 100%;
+    max-height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.ayuda-imagen {
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+.texto-imagen-actual {
+    margin-top: 15px;
+
+    font-weight: bold;
+}

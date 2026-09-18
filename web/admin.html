@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administración | ASEUTP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header-principal">
+
+        <div class="logo">
+            <a href="index.html">
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+            </a>
+        </div>
+
+        <nav class="menu-principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="noticias.html">
+                Ver publicaciones
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="admin-contenedor">
+
+        <section class="admin-encabezado">
+
+            <h1>
+                Panel administrativo
+            </h1>
+
+            <p>
+                Gestiona las noticias, convenios y
+                oportunidades laborales publicadas en la plataforma.
+            </p>
+
+        </section>
+
+
+        <section class="admin-grid">
+
+            <div class="admin-formulario">
+
+                <h2 id="tituloFormulario">
+                    Nueva publicación
+                </h2>
+
+
+                <form id="formPublicacion">
+
+                    <input
+                        type="hidden"
+                        id="publicacionId"
+                    >
+
+
+                    <label for="tipoPublicacion">
+                        Tipo de publicación
+                    </label>
+
+                    <select
+                        id="tipoPublicacion"
+                        required
+                    >
+
+                        <option value="noticia">
+                            Noticia
+                        </option>
+
+                        <option value="convenio">
+                            Convenio
+                        </option>
+
+                        <option value="empleo">
+                            Oportunidad laboral
+                        </option>
+
+                    </select>
+
+
+                    <label for="tituloPublicacion">
+                        Título
+                    </label>
+
+                    <input
+                        type="text"
+                        id="tituloPublicacion"
+                        required
+                    >
+
+
+                    <label for="descripcionPublicacion">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcionPublicacion"
+                        rows="6"
+                        required
+                    ></textarea>
+
+
+                    <label for="fechaPublicacion">
+                        Fecha
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaPublicacion"
+                        required
+                    >
+
+
+                    <label for="imagenPublicacion">
+                        Imagen
+                    </label>
+
+                    <input
+                    type="file"
+                    id="imagenPublicacion"
+                    accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                    >
+
+                    <p class="ayuda-imagen">
+                        Formatos permitidos: JPG, JPEG, PNG y WEBP.
+                        Tamaño máximo: 5 MB.
+                    </p>
+                    
+                    <div id="vistaPreviaImagen"></div>
+
+
+                    <div class="admin-botones">
+
+                        <button
+                            type="submit"
+                            class="boton-principal"
+                        >
+                            Guardar publicación
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="btnCancelarEdicion"
+                            class="boton-secundario"
+                            hidden
+                        >
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div
+                    id="mensajeAdmin"
+                    class="mensaje-registro"
+                ></div>
+
+            </div>
+
+
+            <div class="admin-listado">
+
+                <h2>
+                    Publicaciones existentes
+                </h2>
+
+                <div id="listaAdmin">
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

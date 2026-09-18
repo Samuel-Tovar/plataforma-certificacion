@@ -1,3 +1,5 @@
+const CLAVE_STORAGE = "aseutp_publicaciones";
+
 const contenedor =
     document.getElementById("contenedorPublicaciones");
 
@@ -7,52 +9,100 @@ const botonesFiltro =
 let publicaciones = [];
 
 
+// ========================================
+// CARGAR PUBLICACIONES
+// ========================================
+
 async function cargarPublicaciones() {
 
     try {
 
-        const respuesta =
-            await fetch("../data/publicaciones.json");
+        // Primero buscar publicaciones
+        // creadas desde el panel administrativo
+        const guardadas =
+            localStorage.getItem(CLAVE_STORAGE);
 
-        if (!respuesta.ok) {
-            throw new Error(
-                "No se pudieron cargar las publicaciones."
+
+        if (guardadas) {
+
+            publicaciones =
+                JSON.parse(guardadas);
+
+        } else {
+
+            // Si todavía no hay nada guardado,
+            // cargar los datos iniciales del JSON
+
+            const respuesta =
+                await fetch(
+                    "../data/publicaciones.json"
+                );
+
+
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    "No se pudieron cargar las publicaciones."
+                );
+            }
+
+
+            const datos =
+                await respuesta.json();
+
+
+            publicaciones =
+                datos.publicaciones || [];
+
+
+            // Guardarlas como datos iniciales
+            localStorage.setItem(
+                CLAVE_STORAGE,
+                JSON.stringify(publicaciones)
             );
         }
 
 
-        const datos =
-            await respuesta.json();
+        // Ordenar desde la más reciente
+        publicaciones.sort(
+            (a, b) =>
+                new Date(b.fecha) -
+                new Date(a.fecha)
+        );
 
 
-        publicaciones =
-            datos.publicaciones;
-
-
-        mostrarPublicaciones(publicaciones);
+        mostrarPublicaciones(
+            publicaciones
+        );
 
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Error cargando publicaciones:",
+            error
+        );
+
 
         contenedor.innerHTML = `
             <p class="mensaje-error">
                 No fue posible cargar las publicaciones.
             </p>
         `;
-
     }
-
 }
 
+
+// ========================================
+// MOSTRAR PUBLICACIONES
+// ========================================
 
 function mostrarPublicaciones(lista) {
 
     contenedor.innerHTML = "";
 
 
-    if (lista.length === 0) {
+    if (!lista || lista.length === 0) {
 
         contenedor.innerHTML = `
             <p>
@@ -64,113 +114,112 @@ function mostrarPublicaciones(lista) {
     }
 
 
-    lista.forEach(publicacion => {
+    lista.forEach(
+        publicacion => {
 
-        const tarjeta =
-            document.createElement("article");
-
-
-        tarjeta.classList.add(
-            "tarjeta-publicacion"
-        );
+            const tarjeta =
+                document.createElement("article");
 
 
-        tarjeta.innerHTML = `
-
-            <span class="tipo-publicacion">
-                ${obtenerNombreTipo(publicacion.tipo)}
-            </span>
-
-            <h2>
-                ${publicacion.titulo}
-            </h2>
-
-            <p class="fecha-publicacion">
-                ${formatearFecha(publicacion.fecha)}
-            </p>
-
-            <p>
-                ${publicacion.descripcion}
-            </p>
-
-        `;
+            tarjeta.className =
+                "tarjeta-publicacion";
 
 
-        contenedor.appendChild(tarjeta);
+            tarjeta.innerHTML = `
 
-    });
+                ${
+                    publicacion.imagen
+                    ? `
+                        <img
+                            src="${publicacion.imagen}"
+                            class="imagen-publicacion"
+                            alt="${publicacion.titulo}"
+                        >
+                    `
+                    : ""
+                }
 
+
+                <div class="contenido-publicacion">
+
+                    <span class="tipo-publicacion">
+
+                        ${obtenerNombreTipo(
+                            publicacion.tipo
+                        )}
+
+                    </span>
+
+
+                    <h2>
+                        ${publicacion.titulo}
+                    </h2>
+
+
+                    <p class="fecha-publicacion">
+
+                        ${formatearFecha(
+                            publicacion.fecha
+                        )}
+
+                    </p>
+
+
+                    <p>
+                        ${publicacion.descripcion}
+                    </p>
+
+                </div>
+            `;
+
+
+            contenedor.appendChild(
+                tarjeta
+            );
+        }
+    );
 }
 
 
-function obtenerNombreTipo(tipo) {
+// ========================================
+// FILTROS
+// ========================================
 
-    switch (tipo) {
+botonesFiltro.forEach(
+    boton => {
 
-        case "noticia":
-            return "Noticia";
+        boton.addEventListener(
+            "click",
+            function () {
 
-        case "convenio":
-            return "Convenio";
+                botonesFiltro.forEach(
+                    item => {
 
-        case "empleo":
-            return "Oportunidad laboral";
-
-        default:
-            return "Publicación";
-
-    }
-
-}
-
-
-function formatearFecha(fecha) {
-
-    const partes =
-        fecha.split("-");
+                        item.classList.remove(
+                            "activo-filtro"
+                        );
+                    }
+                );
 
 
-    if (partes.length !== 3) {
-        return fecha;
-    }
-
-
-    return `
-        ${partes[2]}/${partes[1]}/${partes[0]}
-    `;
-
-}
-
-
-botonesFiltro.forEach(boton => {
-
-    boton.addEventListener(
-        "click",
-        function () {
-
-            botonesFiltro.forEach(item => {
-                item.classList.remove(
+                this.classList.add(
                     "activo-filtro"
                 );
-            });
 
 
-            this.classList.add(
-                "activo-filtro"
-            );
+                const tipo =
+                    this.dataset.tipo;
 
 
-            const tipo =
-                this.dataset.tipo;
+                if (tipo === "todos") {
 
+                    mostrarPublicaciones(
+                        publicaciones
+                    );
 
-            if (tipo === "todos") {
+                    return;
+                }
 
-                mostrarPublicaciones(
-                    publicaciones
-                );
-
-            } else {
 
                 const filtradas =
                     publicaciones.filter(
@@ -182,13 +231,75 @@ botonesFiltro.forEach(boton => {
                 mostrarPublicaciones(
                     filtradas
                 );
-
             }
+        );
+    }
+);
 
-        }
+
+// ========================================
+// NOMBRE DEL TIPO
+// ========================================
+
+function obtenerNombreTipo(tipo) {
+
+    switch (tipo) {
+
+        case "noticia":
+
+            return "Noticia";
+
+
+        case "convenio":
+
+            return "Convenio";
+
+
+        case "empleo":
+
+            return "Oportunidad laboral";
+
+
+        default:
+
+            return "Publicación";
+    }
+}
+
+
+// ========================================
+// FORMATEAR FECHA
+// ========================================
+
+function formatearFecha(fecha) {
+
+    if (!fecha) {
+        return "";
+    }
+
+
+    const partes =
+        fecha.split("-");
+
+
+    if (partes.length !== 3) {
+
+        return fecha;
+    }
+
+
+    return (
+        partes[2] +
+        "/" +
+        partes[1] +
+        "/" +
+        partes[0]
     );
+}
 
-});
 
+// ========================================
+// INICIAR
+// ========================================
 
 cargarPublicaciones();
