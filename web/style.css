@@ -1,20 +1,19 @@
+/* =====================================================
+   ESTILOS GENERALES
+===================================================== */
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-}
 
-.contenedor {
-    max-width: 700px;
-    margin: 100px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+
+    background: #f4f6f8;
+
+    color: #222;
 }
 
 h1 {
@@ -23,83 +22,134 @@ h1 {
 
 p {
     text-align: center;
-    color: #555;
-}
 
-.buscador {
-    display: flex;
-    gap: 10px;
-    margin-top: 30px;
+    color: #555;
 }
 
 input {
     flex: 1;
+
     padding: 12px;
+
     font-size: 16px;
 }
 
 button {
     padding: 12px 20px;
+
     cursor: pointer;
 }
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =====================================================
+   VERIFICACIÓN DE CERTIFICADOS
+===================================================== */
+
+.contenedor {
+    max-width: 700px;
+
+    margin: 100px auto;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.buscador {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
 
 .resultado {
     margin-top: 30px;
 }
 
+
 .certificado {
     padding: 20px;
+
     border: 1px solid #ddd;
+
     border-radius: 8px;
 }
+
 
 .valido {
     font-weight: bold;
 }
 
-.error {
-    text-align: center;
-    font-weight: bold;
-}
 
 .activo {
     border-left: 5px solid green;
 }
 
+
 .inactivo {
     border-left: 5px solid orange;
 }
 
+
 .estado-activo {
     font-weight: bold;
+
     color: green;
 }
 
+
 .estado-inactivo {
     font-weight: bold;
+
     color: orange;
 }
 
+
 .mensaje {
     margin-top: 20px;
+
     padding: 20px;
+
     border-radius: 8px;
+
     text-align: center;
 }
 
+
 .error {
+    text-align: center;
+
+    font-weight: bold;
+
     border: 1px solid #d9534f;
+
     background: #fff5f5;
+
     color: #b52b27;
 }
 
-/* ================================
-   PAGINA PRINCIPAL
-================================ */
+
+/* =====================================================
+   HEADER PRINCIPAL
+===================================================== */
 
 .header-principal {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     padding: 20px 8%;
@@ -112,25 +162,92 @@ button {
 
 .logo img {
     height: 100px;
+
     width: auto;
+
     display: block;
 }
 
 
+/* =====================================================
+   MENÚ PRINCIPAL
+===================================================== */
+
 .menu-principal {
     display: flex;
+
     align-items: center;
+
     gap: 25px;
 }
 
 
-.menu-principal a {
+/*
+IMPORTANTE:
+Solo afecta a los enlaces principales:
+Nosotros y Noticias.
+No afecta al menú desplegable.
+*/
+
+.menu-principal > a {
     color: white;
+
     text-decoration: none;
+
+    font-size: 16px;
+
+    transition: color 0.2s ease;
 }
 
 
-.boton-registro {
+.menu-principal > a:hover {
+    color: #f5b51b;
+}
+
+
+/* =====================================================
+   ZONA DE AUTENTICACIÓN
+===================================================== */
+
+.zona-auth {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   USUARIO NO AUTENTICADO
+===================================================== */
+
+.menu-invitado {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.menu-invitado > a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+}
+
+
+.menu-invitado > a:hover {
+    color: #f5b51b;
+}
+
+
+/* Botón Registrarse */
+
+.menu-invitado .boton-registro {
     background: #f5b51b;
 
     padding: 10px 18px;
@@ -138,14 +255,207 @@ button {
     border-radius: 6px;
 
     color: #222 !important;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
+
+.menu-invitado .boton-registro:hover {
+    background: #ffc53d;
+
+    color: #222;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   USUARIO AUTENTICADO
+===================================================== */
+
+.menu-usuario {
+    position: relative;
+}
+
+
+/* Botón Samuel ▼ */
+
+.boton-cuenta {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 0;
+
+    padding: 9px 14px;
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.boton-cuenta:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border-color:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+/* Icono del usuario */
+
+.icono-cuenta {
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5b51b;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+
+.flecha-cuenta {
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   MENÚ DESPLEGABLE DE CUENTA
+===================================================== */
+
+.dropdown-cuenta {
+    position: absolute;
+
+    top: calc(100% + 12px);
+
+    right: 0;
+
+    width: 270px;
+
+    padding: 8px;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+
+    z-index: 1000;
+}
+
+
+.dropdown-cuenta a,
+.dropdown-cuenta button {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 13px 15px;
+
+    background: transparent;
+
+    color: #222;
+
+    border: none;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: normal;
+
+    cursor: pointer;
+}
+
+
+.dropdown-cuenta a:hover,
+.dropdown-cuenta button:hover {
+    background: #f4f4f4;
+}
+
+
+/* Administrador */
+
+.dropdown-cuenta #opcionAdmin {
+    color: #bb8000;
+
+    font-weight: bold;
+}
+
+
+/* Cerrar sesión */
+
+.dropdown-cuenta #cerrarSesion {
+    margin-top: 5px;
+
+    border-top:
+        1px solid #e5e5e5;
+
+    border-radius: 0;
+
+    color: #b52b27;
+}
+
+
+.dropdown-cuenta #cerrarSesion:hover {
+    background: #fff1f1;
+}
+
+
+/* =====================================================
+   HERO / PORTADA
+===================================================== */
 
 .hero {
     min-height: 520px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -184,10 +494,16 @@ button {
     margin-top: 35px;
 
     display: flex;
+
     justify-content: center;
+
     gap: 20px;
 }
 
+
+/* =====================================================
+   BOTONES GENERALES
+===================================================== */
 
 .boton-principal {
     display: inline-block;
@@ -208,6 +524,11 @@ button {
 }
 
 
+.boton-principal:hover {
+    background: #333;
+}
+
+
 .boton-secundario {
     display: inline-block;
 
@@ -225,6 +546,15 @@ button {
 }
 
 
+.boton-secundario:hover {
+    background: #f7f7f7;
+}
+
+
+/* =====================================================
+   SECCIÓN PRINCIPAL
+===================================================== */
+
 .seccion-inicio {
     padding: 70px 8%;
 }
@@ -241,7 +571,10 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
 
     gap: 25px;
 }
@@ -255,13 +588,31 @@ button {
     border-radius: 10px;
 
     border: 1px solid #ddd;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.tarjeta:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 
 .tarjeta a {
     font-weight: bold;
+
+    color: #1f2327;
 }
 
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
     background: #1f2327;
@@ -274,9 +625,16 @@ footer {
 }
 
 
-/* ================================
-   PAGINAS
-================================ */
+footer p {
+    color: white;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   PÁGINAS INTERNAS
+===================================================== */
 
 .pagina-contenido {
     max-width: 1100px;
@@ -292,15 +650,17 @@ footer {
 }
 
 
-/* ================================
+/* =====================================================
    FORMULARIOS
-================================ */
+===================================================== */
 
 .contenedor-formulario {
     min-height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     background: #f4f6f8;
@@ -311,6 +671,7 @@ footer {
 
 .formulario {
     width: 100%;
+
     max-width: 520px;
 
     background: white;
@@ -326,12 +687,14 @@ footer {
 
 .formulario form {
     display: flex;
+
     flex-direction: column;
 }
 
 
 .formulario label {
     margin-top: 18px;
+
     margin-bottom: 7px;
 
     font-weight: bold;
@@ -340,6 +703,8 @@ footer {
 
 .formulario input,
 .formulario select {
+    width: 100%;
+
     padding: 12px;
 
     border: 1px solid #aaa;
@@ -357,8 +722,19 @@ footer {
 
 .volver {
     text-decoration: none;
+
+    color: #222;
 }
 
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   REQUISITOS DE CONTRASEÑA
+===================================================== */
 
 .requisitos-password {
     margin-top: 15px;
@@ -383,6 +759,10 @@ footer {
 }
 
 
+/* =====================================================
+   CONSENTIMIENTO
+===================================================== */
+
 .consentimiento {
     display: flex;
 
@@ -397,14 +777,22 @@ footer {
 
 
 .consentimiento input {
+    flex: 0 0 auto;
+
     margin-top: 5px;
 }
 
+
+/* =====================================================
+   MENSAJES DE REGISTRO / LOGIN
+===================================================== */
 
 .mensaje-registro {
     margin-top: 20px;
 
     font-weight: bold;
+
+    text-align: center;
 }
 
 
@@ -418,41 +806,13 @@ footer {
 }
 
 
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 800px) {
-
-    .header-principal {
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-
-    .menu-principal {
-        flex-direction: column;
-    }
-
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-
-    .hero-botones {
-        flex-direction: column;
-    }
-
-}
-
-/* ================================
+/* =====================================================
    PUBLICACIONES
-================================ */
+===================================================== */
 
 .filtros-publicaciones {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 10px;
@@ -536,9 +896,10 @@ footer {
     font-size: 14px;
 }
 
-/* ================================
+
+/* =====================================================
    PANEL ADMINISTRATIVO
-================================ */
+===================================================== */
 
 .admin-contenedor {
     max-width: 1300px;
@@ -569,7 +930,6 @@ footer {
 
 .admin-formulario,
 .admin-listado {
-
     background: white;
 
     padding: 30px;
@@ -577,7 +937,6 @@ footer {
     border-radius: 12px;
 
     border: 1px solid #ddd;
-
 }
 
 
@@ -600,7 +959,6 @@ footer {
 .admin-formulario input,
 .admin-formulario select,
 .admin-formulario textarea {
-
     width: 100%;
 
     padding: 12px;
@@ -612,23 +970,19 @@ footer {
     font-family: inherit;
 
     font-size: 15px;
-
 }
 
 
 .admin-botones {
-
     display: flex;
 
     gap: 10px;
 
     margin-top: 20px;
-
 }
 
 
 .admin-publicacion {
-
     padding: 20px;
 
     margin-bottom: 20px;
@@ -636,23 +990,19 @@ footer {
     border: 1px solid #ddd;
 
     border-radius: 10px;
-
 }
 
 
 .acciones-admin {
-
     display: flex;
 
     gap: 10px;
 
     margin-top: 15px;
-
 }
 
 
 .btn-editar {
-
     background: #1f2327;
 
     color: white;
@@ -664,12 +1014,10 @@ footer {
     border-radius: 5px;
 
     cursor: pointer;
-
 }
 
 
 .btn-eliminar {
-
     background: #b52b27;
 
     color: white;
@@ -681,23 +1029,18 @@ footer {
     border-radius: 5px;
 
     cursor: pointer;
-
 }
 
 
-@media (max-width: 900px) {
-
-    .admin-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
+/* =====================================================
+   IMÁGENES DE PUBLICACIONES
+===================================================== */
 
 .imagen-vista-previa {
     width: 100%;
+
     max-height: 250px;
+
     object-fit: cover;
 
     margin-top: 15px;
@@ -708,6 +1051,7 @@ footer {
 
 .imagen-publicacion-admin {
     width: 100%;
+
     max-height: 250px;
 
     object-fit: cover;
@@ -731,4 +1075,96 @@ footer {
     margin-top: 15px;
 
     font-weight: bold;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .header-principal {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .logo img {
+        height: 85px;
+    }
+
+
+    .menu-principal {
+        flex-direction: column;
+
+        gap: 18px;
+
+        width: 100%;
+    }
+
+
+    .zona-auth {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .menu-invitado {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .menu-usuario {
+        width: auto;
+    }
+
+
+    .dropdown-cuenta {
+        right: 50%;
+
+        transform:
+            translateX(50%);
+
+        width: 260px;
+    }
+
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            70px 20px;
+    }
+
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+
+    .hero-botones {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .buscador {
+        flex-direction: column;
+    }
+
 }

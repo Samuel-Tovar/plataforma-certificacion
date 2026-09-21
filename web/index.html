@@ -11,7 +11,10 @@
 
     <title>ASEUTP | Asociación de Egresados UTP</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
@@ -19,8 +22,12 @@
     <header class="header-principal">
 
         <div class="logo">
-            <img src="../assets/img/logo-aseutp.png" alt="Logo ASEUTP">
+            <img
+                src="../assets/img/logo-aseutp.png"
+                alt="Logo ASEUTP"
+            >
         </div>
+
 
         <nav class="menu-principal">
 
@@ -32,16 +39,103 @@
                 Noticias y oportunidades
             </a>
 
-            <a href="login.html">
-                Iniciar sesión
-            </a>
 
-            <a
-                href="registro.html"
-                class="boton-registro"
-            >
-                Registrarse
-            </a>
+            <!-- ======================================
+                 ZONA DE AUTENTICACIÓN
+            ======================================= -->
+
+            <div class="zona-auth">
+
+
+                <!-- USUARIO NO AUTENTICADO -->
+
+                <div
+                    id="menuInvitado"
+                    class="menu-invitado"
+                >
+
+                    <a href="login.html">
+                        Iniciar sesión
+                    </a>
+
+                    <a
+                        href="registro.html"
+                        class="boton-registro"
+                    >
+                        Registrarse
+                    </a>
+
+                </div>
+
+
+                <!-- USUARIO AUTENTICADO -->
+
+                <div
+                    id="menuUsuario"
+                    class="menu-usuario oculto"
+                >
+
+                    <button
+                        id="botonCuenta"
+                        class="boton-cuenta"
+                        type="button"
+                    >
+
+                        <span class="icono-cuenta">
+                            👤
+                        </span>
+
+                        <span id="nombreUsuario">
+                            Mi cuenta
+                        </span>
+
+                        <span class="flecha-cuenta">
+                            ▼
+                        </span>
+
+                    </button>
+
+
+                    <!-- MENÚ DESPLEGABLE -->
+
+                    <div
+                        id="dropdownCuenta"
+                        class="dropdown-cuenta oculto"
+                    >
+
+                        <a href="cuenta.html">
+                            Mi cuenta
+                        </a>
+
+
+                        <!-- SOLO PARA ADMINISTRADORES -->
+
+                        <a
+                            href="admin.html"
+                            id="opcionAdmin"
+                            class="oculto"
+                        >
+                            Administrar publicaciones
+                        </a>
+
+
+                        <a href="configuracion.html">
+                            Configuración de la cuenta
+                        </a>
+
+
+                        <button
+                            id="cerrarSesion"
+                            type="button"
+                        >
+                            Cerrar sesión
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </nav>
 
@@ -49,6 +143,10 @@
 
 
     <main>
+
+        <!-- ======================================
+             HERO
+        ======================================= -->
 
         <section class="hero">
 
@@ -68,6 +166,7 @@
                     egresados de la Universidad Tecnológica de Pereira
                     con noticias, convenios, proyectos y oportunidades.
                 </p>
+
 
                 <div class="hero-botones">
 
@@ -92,17 +191,27 @@
         </section>
 
 
+        <!-- ======================================
+             INFORMACIÓN PRINCIPAL
+        ======================================= -->
+
         <section class="seccion-inicio">
 
             <h2>
                 Información para nuestros egresados
             </h2>
 
+
             <div class="tarjetas-inicio">
+
+
+                <!-- NOTICIAS -->
 
                 <article class="tarjeta">
 
-                    <h3>Noticias</h3>
+                    <h3>
+                        Noticias
+                    </h3>
 
                     <p>
                         Información de interés para nuestros egresados
@@ -116,9 +225,13 @@
                 </article>
 
 
+                <!-- CONVENIOS -->
+
                 <article class="tarjeta">
 
-                    <h3>Convenios</h3>
+                    <h3>
+                        Convenios
+                    </h3>
 
                     <p>
                         Conoce los nuevos acuerdos y beneficios
@@ -132,9 +245,13 @@
                 </article>
 
 
+                <!-- OPORTUNIDADES -->
+
                 <article class="tarjeta">
 
-                    <h3>Oportunidades laborales</h3>
+                    <h3>
+                        Oportunidades laborales
+                    </h3>
 
                     <p>
                         Consulta oportunidades de empleo dirigidas
@@ -148,9 +265,13 @@
                 </article>
 
 
+                <!-- CERTIFICACIÓN -->
+
                 <article class="tarjeta">
 
-                    <h3>Certificación</h3>
+                    <h3>
+                        Certificación
+                    </h3>
 
                     <p>
                         Comprueba si una persona cuenta con una
@@ -170,6 +291,10 @@
     </main>
 
 
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
     <footer>
 
         <p>
@@ -178,6 +303,16 @@
         </p>
 
     </footer>
+
+
+    <!-- ======================================
+         FIREBASE / ESTADO DE SESIÓN
+    ======================================= -->
+
+    <script
+        type="module"
+        src="js/nav-auth.js"
+    ></script>
 
 </body>
 

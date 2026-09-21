@@ -12,7 +12,10 @@
 
     <title>Registro | ASEUTP</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -74,7 +77,7 @@
                 <!-- CORREO -->
 
                 <label for="correo">
-                    Correo institucional
+                    Correo electrónico
                 </label>
 
                 <input
@@ -98,61 +101,42 @@
                 >
 
 
-                <!-- TIPO DE PERSONA -->
+                <!-- GÉNERO -->
 
-                <label for="tipoPersona">
-                    Tipo de persona
+                <label for="genero">
+                    Género
                 </label>
 
                 <select
-                    id="tipoPersona"
+                    id="genero"
                     required
                 >
 
-                    <option value="natural">
-                        Persona natural
+                    <option
+                        value=""
+                        selected
+                        disabled
+                    >
+                        Seleccionar
                     </option>
 
-                    <option value="juridica">
-                        Persona jurídica
+                    <option value="masculino">
+                        Masculino
+                    </option>
+
+                    <option value="femenino">
+                        Femenino
+                    </option>
+
+                    <option value="otro">
+                        Otro
+                    </option>
+
+                    <option value="prefiero-no-decir">
+                        Prefiero no decirlo
                     </option>
 
                 </select>
-
-
-                <!-- GÉNERO -->
-
-                <div id="campoGenero">
-
-                    <label for="genero">
-                        Género
-                    </label>
-
-                    <select id="genero">
-
-                        <option value="">
-                            Seleccionar
-                        </option>
-
-                        <option value="masculino">
-                            Masculino
-                        </option>
-
-                        <option value="femenino">
-                            Femenino
-                        </option>
-
-                        <option value="otro">
-                            Otro
-                        </option>
-
-                        <option value="prefiero-no-decir">
-                            Prefiero no decirlo
-                        </option>
-
-                    </select>
-
-                </div>
 
 
                 <!-- CONTRASEÑA -->
@@ -183,7 +167,7 @@
                 >
 
 
-                <!-- REQUISITOS -->
+                <!-- REQUISITOS DE CONTRASEÑA -->
 
                 <div class="requisitos-password">
 
@@ -250,11 +234,11 @@
 
                 <button
                     type="submit"
+                    id="btnRegistro"
                     class="boton-principal"
                 >
                     Registrarme
                 </button>
-
 
             </form>
 
@@ -263,13 +247,12 @@
     </main>
 
 
-    <!-- FIREBASE + REGISTRO -->
+    <!-- FIREBASE + LÓGICA DE REGISTRO -->
 
     <script
         type="module"
         src="js/registro.js"
     ></script>
-
 
 </body>
 

@@ -2,7 +2,11 @@
 // FIREBASE
 // ======================================================
 
-import { auth } from "./firebase-config.js";
+import {
+    auth,
+    db
+} from "./firebase-config.js";
+
 
 import {
     createUserWithEmailAndPassword,
@@ -11,31 +15,53 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
+import {
+    doc,
+    setDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
 // ======================================================
-// ELEMENTOS DEL FORMULARIO
+// ELEMENTOS
 // ======================================================
 
-const formulario = document.getElementById("formRegistro");
+const formulario =
+    document.getElementById("formRegistro");
 
-const password = document.getElementById("password");
+const nombre =
+    document.getElementById("nombre");
+
+const apellido =
+    document.getElementById("apellido");
+
+const correo =
+    document.getElementById("correo");
+
+const fechaNacimiento =
+    document.getElementById("fechaNacimiento");
+
+const genero =
+    document.getElementById("genero");
+
+const password =
+    document.getElementById("password");
 
 const confirmarPassword =
     document.getElementById("confirmarPassword");
 
-const correo = document.getElementById("correo");
-
-const tipoPersona = document.getElementById("tipoPersona");
-
-const campoGenero = document.getElementById("campoGenero");
-
-const mensaje = document.getElementById("mensajeRegistro");
-
 const consentimiento =
     document.getElementById("consentimiento");
 
+const mensaje =
+    document.getElementById("mensajeRegistro");
+
+const btnRegistro =
+    document.getElementById("btnRegistro");
+
 
 // ======================================================
-// REQUISITOS DE CONTRASEÑA
+// REQUISITOS CONTRASEÑA
 // ======================================================
 
 const reqLongitud =
@@ -52,7 +78,7 @@ const reqASCII =
 
 
 // ======================================================
-// EVENTOS
+// VALIDACIÓN EN TIEMPO REAL
 // ======================================================
 
 password.addEventListener(
@@ -61,31 +87,14 @@ password.addEventListener(
 );
 
 
-tipoPersona.addEventListener(
-    "change",
-    function () {
-
-        if (tipoPersona.value === "natural") {
-
-            campoGenero.style.display = "block";
-
-        } else {
-
-            campoGenero.style.display = "none";
-
-        }
-
-    }
-);
-
-
 // ======================================================
-// VALIDACIÓN DE CONTRASEÑA
+// VALIDAR CONTRASEÑA
 // ======================================================
 
 function validarPassword() {
 
-    const valor = password.value;
+    const valor =
+        password.value;
 
 
     const longitudValida =
@@ -139,12 +148,11 @@ function validarPassword() {
         tieneNumero &&
         soloASCII
     );
-
 }
 
 
 // ======================================================
-// ACTUALIZAR REQUISITOS VISUALES
+// ACTUALIZAR REQUISITO
 // ======================================================
 
 function actualizarRequisito(
@@ -165,7 +173,6 @@ function actualizarRequisito(
         );
 
     }
-
 }
 
 
@@ -175,26 +182,71 @@ function actualizarRequisito(
 
 function mostrarError(texto) {
 
-    mensaje.textContent = texto;
+    mensaje.textContent =
+        texto;
+
 
     mensaje.className =
         "mensaje-registro mensaje-error";
-
 }
 
 
 function mostrarExito(texto) {
 
-    mensaje.textContent = texto;
+    mensaje.textContent =
+        texto;
+
 
     mensaje.className =
         "mensaje-registro mensaje-exito";
-
 }
 
 
 // ======================================================
-// ENVÍO DEL FORMULARIO
+// RESTAURAR BOTÓN
+// ======================================================
+
+function restaurarBoton() {
+
+    btnRegistro.disabled =
+        false;
+
+
+    btnRegistro.textContent =
+        "Registrarme";
+}
+
+
+// ======================================================
+// LIMPIAR REQUISITOS
+// ======================================================
+
+function limpiarRequisitosPassword() {
+
+    actualizarRequisito(
+        reqLongitud,
+        false
+    );
+
+    actualizarRequisito(
+        reqMayuscula,
+        false
+    );
+
+    actualizarRequisito(
+        reqNumero,
+        false
+    );
+
+    actualizarRequisito(
+        reqASCII,
+        false
+    );
+}
+
+
+// ======================================================
+// REGISTRO
 // ======================================================
 
 formulario.addEventListener(
@@ -204,9 +256,72 @@ formulario.addEventListener(
         evento.preventDefault();
 
 
-        // ----------------------------------------------
-        // Validar contraseña
-        // ----------------------------------------------
+        btnRegistro.disabled =
+            true;
+
+
+        btnRegistro.textContent =
+            "Registrando...";
+
+
+        // ==================================================
+        // DATOS
+        // ==================================================
+
+        const nombreUsuario =
+            nombre.value.trim();
+
+
+        const apellidoUsuario =
+            apellido.value.trim();
+
+
+        const correoUsuario =
+            correo.value
+                .trim()
+                .toLowerCase();
+
+
+        const fechaUsuario =
+            fechaNacimiento.value;
+
+
+        const generoUsuario =
+            genero.value;
+
+
+        const passwordUsuario =
+            password.value;
+
+
+        const confirmacionUsuario =
+            confirmarPassword.value;
+
+
+        // ==================================================
+        // VALIDACIONES
+        // ==================================================
+
+        if (
+            nombreUsuario === "" ||
+            apellidoUsuario === "" ||
+            correoUsuario === "" ||
+            fechaUsuario === "" ||
+            generoUsuario === "" ||
+            passwordUsuario === "" ||
+            confirmacionUsuario === ""
+        ) {
+
+            mostrarError(
+                "Debes completar todos los campos."
+            );
+
+
+            restaurarBoton();
+
+            return;
+        }
+
 
         if (!validarPassword()) {
 
@@ -214,30 +329,28 @@ formulario.addEventListener(
                 "La contraseña no cumple todos los requisitos."
             );
 
+
+            restaurarBoton();
+
             return;
         }
 
 
-        // ----------------------------------------------
-        // Confirmación de contraseña
-        // ----------------------------------------------
-
         if (
-            confirmarPassword &&
-            password.value !== confirmarPassword.value
+            passwordUsuario !==
+            confirmacionUsuario
         ) {
 
             mostrarError(
                 "Las contraseñas no coinciden."
             );
 
+
+            restaurarBoton();
+
             return;
         }
 
-
-        // ----------------------------------------------
-        // Validar consentimiento
-        // ----------------------------------------------
 
         if (!consentimiento.checked) {
 
@@ -245,44 +358,28 @@ formulario.addEventListener(
                 "Debes aceptar la autorización para continuar."
             );
 
-            return;
-        }
 
-
-        // ----------------------------------------------
-        // Validar correo
-        // ----------------------------------------------
-
-        const correoUsuario =
-            correo.value.trim();
-
-
-        if (correoUsuario === "") {
-
-            mostrarError(
-                "Debes ingresar un correo electrónico."
-            );
+            restaurarBoton();
 
             return;
         }
 
 
-        // ----------------------------------------------
-        // Crear cuenta Firebase
-        // ----------------------------------------------
+        // ==================================================
+        // FIREBASE
+        // ==================================================
 
         try {
 
-            mostrarExito(
-                "Creando cuenta..."
-            );
-
+            // ----------------------------------------------
+            // CREAR CUENTA
+            // ----------------------------------------------
 
             const credencial =
                 await createUserWithEmailAndPassword(
                     auth,
                     correoUsuario,
-                    password.value
+                    passwordUsuario
                 );
 
 
@@ -290,80 +387,89 @@ formulario.addEventListener(
                 credencial.user;
 
 
-            // ------------------------------------------
-            // Enviar correo de verificación
-            // ------------------------------------------
+            // ----------------------------------------------
+            // CREAR PERFIL
+            // ----------------------------------------------
+            //
+            // TODOS los usuarios nuevos nacen como
+            // "usuario".
+            //
+            // NUNCA asignamos admin automáticamente.
+            // ----------------------------------------------
+
+            await setDoc(
+                doc(
+                    db,
+                    "usuarios",
+                    usuario.uid
+                ),
+                {
+
+                    nombre:
+                        nombreUsuario,
+
+                    apellido:
+                        apellidoUsuario,
+
+                    correo:
+                        correoUsuario,
+
+                    fechaNacimiento:
+                        fechaUsuario,
+
+                    genero:
+                        generoUsuario,
+
+                    rol:
+                        "usuario",
+
+                    creadoEn:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            // ----------------------------------------------
+            // CORREO DE VERIFICACIÓN
+            // ----------------------------------------------
 
             await sendEmailVerification(
                 usuario
             );
 
 
-            // ------------------------------------------
-            // Cerramos sesión inmediatamente
-            // ------------------------------------------
-            // Así el usuario no queda autenticado
-            // antes de confirmar su correo.
-            // ------------------------------------------
+            // ----------------------------------------------
+            // CERRAR SESIÓN
+            // ----------------------------------------------
 
             await signOut(auth);
 
 
-            // ------------------------------------------
-            // Mensaje final
-            // ------------------------------------------
+            // ----------------------------------------------
+            // MENSAJE
+            // ----------------------------------------------
 
             mostrarExito(
                 "✓ Registro realizado correctamente. " +
                 "Hemos enviado un correo de verificación a " +
                 correoUsuario +
-                ". Revisa tu bandeja de entrada y haz clic " +
-                "en el enlace para activar tu cuenta."
+                ". Revisa tu bandeja de entrada y activa tu cuenta."
             );
 
-
-            // ------------------------------------------
-            // Limpiar formulario
-            // ------------------------------------------
 
             formulario.reset();
 
-            campoGenero.style.display =
-                "none";
 
-
-            actualizarRequisito(
-                reqLongitud,
-                false
-            );
-
-            actualizarRequisito(
-                reqMayuscula,
-                false
-            );
-
-            actualizarRequisito(
-                reqNumero,
-                false
-            );
-
-            actualizarRequisito(
-                reqASCII,
-                false
-            );
-
+            limpiarRequisitosPassword();
 
         } catch (error) {
 
             console.error(
-                "Error al registrar:",
+                "Error durante el registro:",
                 error
             );
 
-
-            // ------------------------------------------
-            // Errores Firebase
-            // ------------------------------------------
 
             switch (error.code) {
 
@@ -379,7 +485,7 @@ formulario.addEventListener(
                 case "auth/invalid-email":
 
                     mostrarError(
-                        "El correo electrónico ingresado no es válido."
+                        "El correo electrónico no es válido."
                     );
 
                     break;
@@ -397,8 +503,7 @@ formulario.addEventListener(
                 case "auth/network-request-failed":
 
                     mostrarError(
-                        "No fue posible conectarse con el servidor. " +
-                        "Verifica tu conexión a Internet."
+                        "No fue posible conectarse con Firebase."
                     );
 
                     break;
@@ -407,8 +512,7 @@ formulario.addEventListener(
                 case "auth/too-many-requests":
 
                     mostrarError(
-                        "Se realizaron demasiados intentos. " +
-                        "Inténtalo nuevamente más tarde."
+                        "Se realizaron demasiados intentos. Inténtalo más tarde."
                     );
 
                     break;
@@ -421,8 +525,11 @@ formulario.addEventListener(
                     );
 
                     break;
-
             }
+
+        } finally {
+
+            restaurarBoton();
 
         }
 
