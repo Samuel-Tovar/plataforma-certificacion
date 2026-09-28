@@ -1294,3 +1294,10 @@ footer p {
 .cerrar-sesion {
     color: #c62828;
 }
+
+/* Corrección del color del nombre de usuario */
+.btn-cuenta,
+.btn-cuenta .nombre-cuenta,
+.btn-cuenta .flecha-cuenta {
+    color: white !important;
+}

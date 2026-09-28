@@ -44,98 +44,7 @@
                  ZONA DE AUTENTICACIÓN
             ======================================= -->
 
-            <div class="zona-auth">
-
-
-                <!-- USUARIO NO AUTENTICADO -->
-
-                <div
-                    id="menuInvitado"
-                    class="menu-invitado"
-                >
-
-                    <a href="login.html">
-                        Iniciar sesión
-                    </a>
-
-                    <a
-                        href="registro.html"
-                        class="boton-registro"
-                    >
-                        Registrarse
-                    </a>
-
-                </div>
-
-
-                <!-- USUARIO AUTENTICADO -->
-
-                <div
-                    id="menuUsuario"
-                    class="menu-usuario oculto"
-                >
-
-                    <button
-                        id="botonCuenta"
-                        class="boton-cuenta"
-                        type="button"
-                    >
-
-                        <span class="icono-cuenta">
-                            👤
-                        </span>
-
-                        <span id="nombreUsuario">
-                            Mi cuenta
-                        </span>
-
-                        <span class="flecha-cuenta">
-                            ▼
-                        </span>
-
-                    </button>
-
-
-                    <!-- MENÚ DESPLEGABLE -->
-
-                    <div
-                        id="dropdownCuenta"
-                        class="dropdown-cuenta oculto"
-                    >
-
-                        <a href="cuenta.html">
-                            Mi cuenta
-                        </a>
-
-
-                        <!-- SOLO PARA ADMINISTRADORES -->
-
-                        <a
-                            href="admin.html"
-                            id="opcionAdmin"
-                            class="oculto"
-                        >
-                            Administrar publicaciones
-                        </a>
-
-
-                        <a href="configuracion.html">
-                            Configuración de la cuenta
-                        </a>
-
-
-                        <button
-                            id="cerrarSesion"
-                            type="button"
-                        >
-                            Cerrar sesión
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <div id="auth-area"></div>
 
         </nav>
 
@@ -311,8 +220,13 @@
 
     <script
         type="module"
-        src="js/nav-auth.js"
-    ></script>
+        src="js/auth-state.js">
+    </script>
+
+    <script
+        type="module"
+        src="js/cuenta.js">
+    </script>
 
 </body>
 

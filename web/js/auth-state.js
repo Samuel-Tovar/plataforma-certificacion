@@ -17,6 +17,7 @@ const authArea = document.getElementById("auth-area");
 onAuthStateChanged(auth, async (user) => {
 
     if (!authArea) {
+
         console.warn(
             "No se encontró el elemento #auth-area en esta página."
         );
@@ -54,9 +55,9 @@ onAuthStateChanged(auth, async (user) => {
     let rol = "usuario";
 
 
-    // --------------------------------
-    // Intentamos obtener datos Firestore
-    // --------------------------------
+    // ====================================
+    // CONSULTAR DATOS EN FIRESTORE
+    // ====================================
 
     try {
 
@@ -74,6 +75,7 @@ onAuthStateChanged(auth, async (user) => {
         if (documentoUsuario.exists()) {
 
             const datos = documentoUsuario.data();
+
 
             if (datos.nombre) {
 
@@ -103,14 +105,11 @@ onAuthStateChanged(auth, async (user) => {
 
 
     // ============================================
-    // RESPALDO TEMPORAL PARA ADMINISTRADORES UTP
+    // RESPALDO TEMPORAL ADMINISTRADORES UTP
     // ============================================
-    //
-    // Esto sirve para el prototipo.
-    // Más adelante el rol debe depender únicamente
-    // de Firestore / reglas de seguridad.
 
     const correo = user.email || "";
+
 
     if (
         correo.toLowerCase().endsWith("@utp.edu.co")
@@ -140,7 +139,13 @@ onAuthStateChanged(auth, async (user) => {
                 type="button"
             >
 
-                👤 ${nombre}
+                <span class="icono-cuenta">
+                    👤
+                </span>
+
+                <span class="nombre-cuenta">
+                    ${nombre}
+                </span>
 
                 <span class="flecha-cuenta">
                     ▼
@@ -154,14 +159,18 @@ onAuthStateChanged(auth, async (user) => {
                 class="menu-cuenta-dropdown"
             >
 
-                <button
-                    type="button"
-                    id="opcionMiCuenta"
+
+                <!-- MI CUENTA -->
+
+                <a
+                    href="cuenta.html"
                     class="opcion-cuenta"
                 >
                     Mi cuenta
-                </button>
+                </a>
 
+
+                <!-- CONFIGURACIÓN -->
 
                 <button
                     type="button"
@@ -172,11 +181,13 @@ onAuthStateChanged(auth, async (user) => {
                 </button>
 
 
+                <!-- ADMINISTRADOR -->
+
                 ${
                     esAdmin
                     ? `
                         <a
-                            href="administrar-publicaciones.html"
+                            href="admin.html"
                             class="opcion-cuenta opcion-enlace"
                         >
                             Administrar publicaciones
@@ -188,6 +199,8 @@ onAuthStateChanged(auth, async (user) => {
 
                 <div class="separador-cuenta"></div>
 
+
+                <!-- CERRAR SESIÓN -->
 
                 <button
                     type="button"
@@ -211,8 +224,11 @@ onAuthStateChanged(auth, async (user) => {
     const btnCuenta =
         document.getElementById("btnCuenta");
 
+
     const dropdown =
-        document.getElementById("menuCuentaDropdown");
+        document.getElementById(
+            "menuCuentaDropdown"
+        );
 
 
     btnCuenta.addEventListener(
@@ -221,41 +237,9 @@ onAuthStateChanged(auth, async (user) => {
 
             evento.stopPropagation();
 
+
             dropdown.classList.toggle(
                 "mostrar"
-            );
-
-        }
-    );
-
-
-    // ====================================
-    // MI CUENTA
-    // ====================================
-
-    const opcionMiCuenta =
-        document.getElementById("opcionMiCuenta");
-
-
-    opcionMiCuenta.addEventListener(
-        "click",
-        () => {
-
-            dropdown.classList.remove(
-                "mostrar"
-            );
-
-
-            window.dispatchEvent(
-                new CustomEvent(
-                    "abrirMiCuenta",
-                    {
-                        detail: {
-                            user,
-                            rol
-                        }
-                    }
-                )
             );
 
         }
@@ -315,6 +299,7 @@ onAuthStateChanged(auth, async (user) => {
 
                 await signOut(auth);
 
+
                 window.location.href =
                     "index.html";
 
@@ -329,7 +314,6 @@ onAuthStateChanged(auth, async (user) => {
 
         }
     );
-
 
 });
 

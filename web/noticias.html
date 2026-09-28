@@ -37,16 +37,7 @@
                 Nosotros
             </a>
 
-            <a href="login.html">
-                Iniciar sesión
-            </a>
-
-            <a
-                href="registro.html"
-                class="boton-registro"
-            >
-                Registrarse
-            </a>
+            <div id="auth-area"></div>
 
         </nav>
 
@@ -105,7 +96,22 @@
     </main>
 
 
+    <!-- Lógica propia de noticias -->
     <script src="noticias.js"></script>
+
+
+    <!-- Control de sesión -->
+    <script
+        type="module"
+        src="js/auth-state.js">
+    </script>
+
+
+    <!-- Opciones de cuenta -->
+    <script
+        type="module"
+        src="js/cuenta.js">
+    </script>
 
 </body>
 

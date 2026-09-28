@@ -18,7 +18,12 @@
     <header class="header-principal">
 
         <div class="logo">
-            ASEUTP
+            <a href="index.html">
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+            </a>
         </div>
 
         <nav class="menu-principal">
@@ -31,16 +36,7 @@
                 Noticias y oportunidades
             </a>
 
-            <a href="login.html">
-                Iniciar sesión
-            </a>
-
-            <a
-                href="registro.html"
-                class="boton-registro"
-            >
-                Registrarse
-            </a>
+            <div id="auth-area"></div>
 
         </nav>
 
@@ -70,7 +66,6 @@
             aprobación por parte de ASEUTP.
         </p>
 
-
         <h2>
             Nuestra visión
         </h2>
@@ -81,6 +76,17 @@
         </p>
 
     </main>
+
+
+    <script
+        type="module"
+        src="js/auth-state.js">
+    </script>
+
+    <script
+        type="module"
+        src="js/cuenta.js">
+    </script>
 
 </body>
 

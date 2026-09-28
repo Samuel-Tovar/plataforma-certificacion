@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mi cuenta | ASEUTP</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header-principal">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="menu-principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="noticias.html">
+                Noticias y oportunidades
+            </a>
+
+            <div id="auth-area"></div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ======================================
+         MI CUENTA
+    ======================================= -->
+
+    <main class="cuenta-contenedor">
+
+        <section class="cuenta-tarjeta">
+
+            <h1>
+                Mi cuenta
+            </h1>
+
+
+            <!-- FOTO -->
+
+            <div class="perfil-foto-contenedor">
+
+                <img
+                    id="fotoPerfil"
+                    class="perfil-foto oculto"
+                    alt="Foto de perfil"
+                >
+
+                <div
+                    id="fotoDefault"
+                    class="perfil-foto-default"
+                >
+                    👤
+                </div>
+
+            </div>
+
+
+            <!-- NOMBRE -->
+
+            <h2 id="nombreCompleto">
+                Cargando información...
+            </h2>
+
+
+            <!-- CORREO -->
+
+            <p
+                id="correoUsuario"
+                class="correo-perfil"
+            >
+            </p>
+
+
+            <!-- DATOS -->
+
+            <div class="datos-perfil">
+
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Nombre
+                    </span>
+
+                    <span id="perfilNombre">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Apellido
+                    </span>
+
+                    <span id="perfilApellido">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Fecha de nacimiento
+                    </span>
+
+                    <span id="perfilNacimiento">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Fecha de vinculación
+                    </span>
+
+                    <span id="perfilVinculacion">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Renovación de afiliación
+                    </span>
+
+                    <span id="perfilRenovacion">
+                        -
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN -->
+
+            <div class="acciones-perfil">
+
+                <button
+                    id="btnRealizarCambios"
+                    class="boton-principal"
+                    type="button"
+                >
+                    Realizar cambios
+                </button>
+
+            </div>
+
+
+            <p
+                id="mensajeCuenta"
+                class="mensaje-registro"
+            >
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ======================================= -->
+
+    <script
+        type="module"
+        src="js/auth-state.js">
+    </script>
+
+    <script
+        type="module"
+        src="js/cuenta.js">
+    </script>
+
+</body>
+
+</html>
