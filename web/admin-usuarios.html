@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gestión de usuarios | ASEUTP</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header-principal">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="menu-principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="noticias.html">
+                Noticias y oportunidades
+            </a>
+
+            <div id="auth-area"></div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ======================================
+         PANEL ADMINISTRATIVO DE USUARIOS
+    ======================================= -->
+
+    <main class="admin-usuarios-contenedor">
+
+        <section class="admin-usuarios-cabecera">
+
+            <h1>
+                Gestión de usuarios
+            </h1>
+
+            <p>
+                Consulta y administra la afiliación de los usuarios
+                registrados en la plataforma ASEUTP.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             BUSCADOR
+        ======================================= -->
+
+        <section class="admin-usuarios-buscador">
+
+            <input
+                id="buscarUsuario"
+                type="search"
+                placeholder="Buscar por nombre, apellido o correo..."
+            >
+
+        </section>
+
+
+        <!-- ======================================
+             ESTADO DE CARGA
+        ======================================= -->
+
+        <p
+            id="mensajeAdminUsuarios"
+            class="mensaje-registro"
+        >
+            Cargando usuarios...
+        </p>
+
+
+        <!-- ======================================
+             LISTADO
+        ======================================= -->
+
+        <section
+            id="listaUsuarios"
+            class="lista-usuarios-admin"
+        >
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         VENTANA DE EDICIÓN
+    ======================================= -->
+
+    <div
+        id="modalUsuario"
+        class="modal-admin-usuario oculto"
+    >
+
+        <div class="modal-admin-contenido">
+
+            <div class="modal-admin-encabezado">
+
+                <h2>
+                    Gestionar afiliación
+                </h2>
+
+                <button
+                    id="btnCerrarModalUsuario"
+                    class="btn-cerrar-modal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- USUARIO -->
+
+            <div class="resumen-usuario-modal">
+
+                <strong id="modalNombreUsuario">
+                    -
+                </strong>
+
+                <span id="modalCorreoUsuario">
+                    -
+                </span>
+
+            </div>
+
+
+            <form id="formAdminUsuario">
+
+
+                <!-- ======================================
+                     AFILIADO
+                ======================================= -->
+
+                <div class="campo-configuracion">
+
+                    <label for="adminAfiliado">
+                        Afiliado
+                    </label>
+
+                    <select id="adminAfiliado">
+
+                        <option value="false">
+                            No
+                        </option>
+
+                        <option value="true">
+                            Sí
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ======================================
+                     ESTADO
+                ======================================= -->
+
+                <div class="campo-configuracion">
+
+                    <label for="adminEstadoAfiliacion">
+                        Estado de afiliación
+                    </label>
+
+                    <select id="adminEstadoAfiliacion">
+
+                        <option value="PENDIENTE">
+                            Pendiente
+                        </option>
+
+                        <option value="ACTIVA">
+                            Activa
+                        </option>
+
+                        <option value="INACTIVA">
+                            Inactiva
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ======================================
+                     FECHA DE VINCULACIÓN
+                ======================================= -->
+
+                <div class="campo-configuracion">
+
+                    <label for="adminFechaVinculacion">
+                        Fecha de vinculación
+                    </label>
+
+                    <input
+                        id="adminFechaVinculacion"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <!-- ======================================
+                     FECHA DE RENOVACIÓN
+                ======================================= -->
+
+                <div class="campo-configuracion">
+
+                    <label for="adminFechaRenovacion">
+                        Fecha de renovación
+                    </label>
+
+                    <input
+                        id="adminFechaRenovacion"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <!-- ======================================
+                     ROL
+                ======================================= -->
+
+                <div class="campo-configuracion">
+
+                    <label for="adminRol">
+                        Rol
+                    </label>
+
+                    <select id="adminRol">
+
+                        <option value="usuario">
+                            Usuario
+                        </option>
+
+                        <option value="admin">
+                            Administrador
+                        </option>
+
+                    </select>
+
+                    <small>
+                        El rol de administrador permite acceder
+                        a las herramientas administrativas.
+                    </small>
+
+                </div>
+
+
+                <!-- ======================================
+                     ACCIONES
+                ======================================= -->
+
+                <div class="acciones-configuracion">
+
+                    <button
+                        id="btnGuardarUsuario"
+                        class="boton-principal"
+                        type="submit"
+                    >
+                        Guardar cambios
+                    </button>
+
+
+                    <button
+                        id="btnCancelarUsuario"
+                        class="boton-secundario"
+                        type="button"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="mensajeModalUsuario"
+                    class="mensaje-registro"
+                >
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ======================================= -->
+
+    <script
+        type="module"
+        src="js/auth-state.js">
+    </script>
+
+    <script
+        type="module"
+        src="js/admin-usuarios.js">
+    </script>
+
+</body>
+
+</html>

@@ -1301,3 +1301,1005 @@ footer p {
 .btn-cuenta .flecha-cuenta {
     color: white !important;
 }
+
+/* =====================================================
+   MI CUENTA
+===================================================== */
+
+.cuenta-contenedor {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 60px 25px;
+}
+
+
+.cuenta-tarjeta {
+    width: 100%;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e2e2e2;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   CABECERA DEL PERFIL
+===================================================== */
+
+.perfil-cabecera {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.perfil-cabecera h1 {
+    margin-top: 0;
+
+    margin-bottom: 25px;
+}
+
+
+.perfil-cabecera h2 {
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   FOTO DE PERFIL
+===================================================== */
+
+.perfil-foto-contenedor {
+    width: 115px;
+
+    height: 115px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+
+.perfil-foto,
+.perfil-foto-default {
+    width: 115px;
+
+    height: 115px;
+
+    border-radius: 50%;
+}
+
+
+.perfil-foto {
+    object-fit: cover;
+
+    border:
+        3px solid #f5b51b;
+}
+
+
+.perfil-foto-default {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5b51b;
+
+    color: #222;
+
+    font-size: 48px;
+
+    border:
+        3px solid #e4a000;
+}
+
+
+/* =====================================================
+   CORREO DEL USUARIO
+===================================================== */
+
+.correo-perfil {
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   DATOS DEL PERFIL
+===================================================== */
+
+.datos-perfil {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+
+    margin-top: 30px;
+}
+
+
+.dato-perfil {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 18px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 9px;
+}
+
+
+.dato-titulo {
+    color: #666;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+
+.dato-perfil > span:last-child {
+    color: #222;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   ESTADO DE ASOCIACIÓN
+===================================================== */
+
+.estado-afiliacion {
+    width: fit-content;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-size: 13px !important;
+
+    font-weight: bold;
+}
+
+
+.afiliacion-activa {
+    background: #e7f7eb;
+
+    color: #187a35 !important;
+
+    border:
+        1px solid #b8e1c2;
+}
+
+
+.afiliacion-inactiva {
+    background: #fff0f0;
+
+    color: #b52b27 !important;
+
+    border:
+        1px solid #edc0be;
+}
+
+
+.afiliacion-pendiente {
+    background: #fff7df;
+
+    color: #996b00 !important;
+
+    border:
+        1px solid #f0dc9b;
+}
+
+
+/* =====================================================
+   ACCIONES DEL PERFIL
+===================================================== */
+
+.acciones-perfil {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 30px;
+}
+
+
+/* =====================================================
+   CERTIFICACIÓN DE AFILIACIÓN
+===================================================== */
+
+.seccion-certificacion {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-top: 40px;
+
+    padding: 28px;
+
+    background: #fffdf7;
+
+    border:
+        1px solid #f1d98a;
+
+    border-left:
+        5px solid #f5b51b;
+
+    border-radius: 12px;
+}
+
+
+.certificacion-icono {
+    width: 48px;
+
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5b51b;
+
+    color: #222;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+
+.certificacion-contenido {
+    flex: 1;
+}
+
+
+.certificacion-contenido h3 {
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    font-size: 21px;
+}
+
+
+.certificacion-contenido p {
+    margin:
+        0 0
+        15px 0;
+
+    text-align: left;
+
+    line-height: 1.6;
+}
+
+
+.texto-seguridad-certificacion {
+    padding: 12px 15px;
+
+    background: rgba(245, 181, 27, 0.10);
+
+    border-radius: 7px;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE - MI CUENTA
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .cuenta-contenedor {
+        padding:
+            35px 15px;
+    }
+
+
+    .cuenta-tarjeta {
+        padding:
+            30px 20px;
+    }
+
+
+    .datos-perfil {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .seccion-certificacion {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .certificacion-contenido p {
+        text-align: center;
+    }
+
+}
+
+/* =====================================================
+   CONFIGURACIÓN DE CUENTA
+===================================================== */
+
+.configuracion-contenedor {
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 60px 25px;
+}
+
+
+.configuracion-tarjeta {
+    background: white;
+
+    padding: 40px;
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.configuracion-tarjeta h1 {
+    margin-top: 0;
+}
+
+
+.configuracion-descripcion {
+    margin-bottom: 35px;
+}
+
+
+/* CAMPOS */
+
+.campo-configuracion {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 22px;
+}
+
+
+.campo-configuracion label {
+    font-weight: bold;
+
+    color: #333;
+}
+
+
+.campo-configuracion input,
+.campo-configuracion select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+}
+
+
+.campo-configuracion input:disabled {
+    background: #eeeeee;
+
+    color: #777;
+
+    cursor: not-allowed;
+}
+
+
+.campo-configuracion small {
+    color: #777;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   PROGRAMAS
+===================================================== */
+
+.lista-programas-configuracion {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.programa-configuracion {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 11px 14px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #ddd;
+
+    border-radius: 7px;
+}
+
+
+.programa-configuracion-vacio {
+    color: #777;
+}
+
+
+.btn-quitar-programa {
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    background: #fff0f0;
+
+    color: #b52b27;
+
+    border: 1px solid #edc0be;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.btn-quitar-programa:hover {
+    background: #ffdede;
+}
+
+
+/* AGREGAR PROGRAMA */
+
+.agregar-programa {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+    margin-bottom: 8px;
+}
+
+
+.agregar-programa input {
+    flex: 1;
+}
+
+
+.agregar-programa button {
+    background: #f5b51b;
+
+    color: #222;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.agregar-programa button:hover {
+    background: #ffc53d;
+}
+
+
+/* =====================================================
+   ACCIONES
+===================================================== */
+
+.acciones-configuracion {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .configuracion-contenedor {
+        padding: 35px 15px;
+    }
+
+
+    .configuracion-tarjeta {
+        padding: 30px 20px;
+    }
+
+
+    .agregar-programa {
+        flex-direction: column;
+    }
+
+
+    .acciones-configuracion {
+        flex-direction: column;
+    }
+
+}
+
+/* =====================================================
+   PROGRAMAS DE EGRESO - MI CUENTA
+===================================================== */
+
+.programas-egreso-contenedor {
+    width: 100%;
+}
+
+
+/* =====================================================
+   UN SOLO PROGRAMA
+===================================================== */
+
+.programa-unico {
+    display: block;
+
+    color: #222;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   VARIOS PROGRAMAS - DESPLEGABLE
+===================================================== */
+
+.programas-desplegable {
+    width: 100%;
+}
+
+
+.programas-resumen {
+    width: fit-content;
+
+    padding: 9px 14px;
+
+    background: #fff7df;
+
+    color: #664800;
+
+    border: 1px solid #f0dc9b;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    user-select: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.programas-resumen:hover {
+    background: #ffefbd;
+
+    border-color: #e3c968;
+}
+
+
+/* =====================================================
+   LISTA DESPLEGADA
+===================================================== */
+
+.programas-lista {
+    margin:
+        14px 0
+        0 0;
+
+    padding:
+        12px 15px
+        8px 35px;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 8px;
+}
+
+
+.programas-lista li {
+    margin-bottom: 9px;
+
+    color: #333;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+}
+
+
+.programas-lista li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   SIN PROGRAMAS
+===================================================== */
+
+.programa-vacio {
+    color: #777;
+
+    font-size: 15px;
+}
+
+/* =====================================================
+   ADMINISTRACIÓN DE USUARIOS
+===================================================== */
+
+.admin-usuarios-contenedor {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 60px 25px;
+}
+
+
+.admin-usuarios-cabecera {
+    margin-bottom: 35px;
+}
+
+
+.admin-usuarios-cabecera p {
+    max-width: 700px;
+    margin: 10px auto 0;
+}
+
+
+/* =====================================================
+   BUSCADOR DE USUARIOS
+===================================================== */
+
+.admin-usuarios-buscador {
+    margin-bottom: 30px;
+}
+
+
+.admin-usuarios-buscador input {
+    width: 100%;
+    padding: 14px 16px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   LISTADO
+===================================================== */
+
+.lista-usuarios-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+.usuario-admin-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 24px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.usuario-admin-info {
+    flex: 1;
+}
+
+
+.usuario-admin-principal h2 {
+    margin:
+        0 0
+        5px 0;
+}
+
+
+.usuario-admin-correo {
+    margin: 0;
+    text-align: left;
+    color: #777;
+}
+
+
+.usuario-admin-datos {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(130px, 1fr)
+        );
+    gap: 15px;
+    margin-top: 22px;
+}
+
+
+.usuario-admin-datos > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.usuario-admin-etiqueta {
+    color: #666;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.usuario-admin-acciones {
+    display: flex;
+    align-items: center;
+}
+
+
+.usuario-admin-bloque-programas {
+    margin-top: 20px;
+}
+
+
+.usuario-admin-programas {
+    margin:
+        8px 0
+        0 0;
+    padding-left: 20px;
+}
+
+
+.usuario-admin-programas li {
+    margin-bottom: 5px;
+}
+
+
+.usuario-admin-vacio {
+    padding: 35px;
+    text-align: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #777;
+}
+
+
+/* =====================================================
+   MODAL ADMINISTRATIVO
+===================================================== */
+
+.modal-admin-usuario {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    z-index: 5000;
+}
+
+
+.modal-admin-contenido {
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.modal-admin-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.modal-admin-encabezado h2 {
+    margin: 0;
+}
+
+
+.btn-cerrar-modal {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+.resumen-usuario-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-bottom: 25px;
+
+    padding: 15px;
+
+    background: #f7f7f7;
+
+    border-radius: 8px;
+}
+
+
+.resumen-usuario-modal span {
+    color: #777;
+}
+
+
+/* =====================================================
+   RESPONSIVE ADMIN USUARIOS
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .usuario-admin-tarjeta {
+        flex-direction: column;
+    }
+
+
+    .usuario-admin-datos {
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .usuario-admin-acciones {
+        justify-content: flex-start;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .usuario-admin-datos {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .modal-admin-contenido {
+        padding: 22px;
+    }
+
+}

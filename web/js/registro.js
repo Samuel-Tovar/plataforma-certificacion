@@ -433,6 +433,8 @@ formulario.addEventListener(
             // ----------------------------------------------
             // CORREO DE VERIFICACIÓN
             // ----------------------------------------------
+            
+            auth.languageCode = "es";
 
             await sendEmailVerification(
                 usuario

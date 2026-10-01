@@ -11,54 +11,130 @@ import {
 
 
 /* =====================================================
-   ELEMENTOS DE LA PÁGINA
+   ELEMENTOS DEL PERFIL
 ===================================================== */
 
 const nombreCompleto =
-    document.getElementById("nombreCompleto");
+    document.getElementById(
+        "nombreCompleto"
+    );
+
 
 const correoUsuario =
-    document.getElementById("correoUsuario");
+    document.getElementById(
+        "correoUsuario"
+    );
+
 
 const perfilNombre =
-    document.getElementById("perfilNombre");
+    document.getElementById(
+        "perfilNombre"
+    );
+
 
 const perfilApellido =
-    document.getElementById("perfilApellido");
+    document.getElementById(
+        "perfilApellido"
+    );
+
 
 const perfilNacimiento =
-    document.getElementById("perfilNacimiento");
+    document.getElementById(
+        "perfilNacimiento"
+    );
+
+
+const perfilCelular =
+    document.getElementById(
+        "perfilCelular"
+    );
+
+
+const perfilPaisResidencia =
+    document.getElementById(
+        "perfilPaisResidencia"
+    );
+
+
+const perfilRegistro =
+    document.getElementById(
+        "perfilRegistro"
+    );
+
+
+const perfilProgramasEgreso =
+    document.getElementById(
+        "perfilProgramasEgreso"
+    );
+
+
+const perfilEstadoAfiliacion =
+    document.getElementById(
+        "perfilEstadoAfiliacion"
+    );
+
 
 const perfilVinculacion =
-    document.getElementById("perfilVinculacion");
+    document.getElementById(
+        "perfilVinculacion"
+    );
+
 
 const perfilRenovacion =
-    document.getElementById("perfilRenovacion");
+    document.getElementById(
+        "perfilRenovacion"
+    );
+
 
 const fotoPerfil =
-    document.getElementById("fotoPerfil");
+    document.getElementById(
+        "fotoPerfil"
+    );
+
 
 const fotoDefault =
-    document.getElementById("fotoDefault");
+    document.getElementById(
+        "fotoDefault"
+    );
+
 
 const mensajeCuenta =
-    document.getElementById("mensajeCuenta");
+    document.getElementById(
+        "mensajeCuenta"
+    );
+
 
 const btnRealizarCambios =
-    document.getElementById("btnRealizarCambios");
+    document.getElementById(
+        "btnRealizarCambios"
+    );
+
+
+const seccionCertificacion =
+    document.getElementById(
+        "seccionCertificacion"
+    );
+
+
+const btnSolicitarCertificacion =
+    document.getElementById(
+        "btnSolicitarCertificacion"
+    );
 
 
 /* =====================================================
-   COMPROBAR SESIÓN
+   COMPROBAR ESTADO DE AUTENTICACIÓN
 ===================================================== */
 
 onAuthStateChanged(
     auth,
+
     async (user) => {
 
-        /* -----------------------------------------
-           NO HAY USUARIO AUTENTICADO
-        ----------------------------------------- */
+
+        /* =============================================
+           USUARIO NO AUTENTICADO
+        ============================================= */
 
         if (!user) {
 
@@ -69,19 +145,21 @@ onAuthStateChanged(
         }
 
 
-        /* -----------------------------------------
-           CORREO DE FIREBASE AUTH
-        ----------------------------------------- */
+        /* =============================================
+           CORREO
+        ============================================= */
 
         correoUsuario.textContent =
-            user.email || "Correo no disponible";
+            user.email ||
+            "Correo no disponible";
 
 
         try {
 
-            /* =====================================
+
+            /* =========================================
                BUSCAR USUARIO EN FIRESTORE
-            ===================================== */
+            ========================================= */
 
             const referenciaUsuario =
                 doc(
@@ -97,14 +175,14 @@ onAuthStateChanged(
                 );
 
 
-            /* =====================================
+            /* =========================================
                DOCUMENTO NO EXISTE
-            ===================================== */
+            ========================================= */
 
             if (!documentoUsuario.exists()) {
 
                 console.warn(
-                    "No existe documento del usuario:",
+                    "No existe información en Firestore para:",
                     user.uid
                 );
 
@@ -118,14 +196,39 @@ onAuthStateChanged(
                     user.displayName ||
                     "-";
 
+
                 perfilApellido.textContent =
                     "-";
+
 
                 perfilNacimiento.textContent =
                     "No registrada";
 
+
+                perfilCelular.textContent =
+                    "No registrado";
+
+
+                perfilPaisResidencia.textContent =
+                    "No registrado";
+
+
+                perfilRegistro.textContent =
+                    "No registrada";
+
+
+                mostrarProgramasEgreso(
+                    []
+                );
+
+
+                perfilEstadoAfiliacion.textContent =
+                    "NO REGISTRADA";
+
+
                 perfilVinculacion.textContent =
                     "No registrada";
+
 
                 perfilRenovacion.textContent =
                     "No registrada";
@@ -134,17 +237,19 @@ onAuthStateChanged(
                 mensajeCuenta.textContent =
                     "No se encontró información adicional del perfil.";
 
+
                 mensajeCuenta.classList.add(
                     "mensaje-error"
                 );
+
 
                 return;
             }
 
 
-            /* =====================================
-               DATOS FIRESTORE
-            ===================================== */
+            /* =========================================
+               OBTENER DATOS
+            ========================================= */
 
             const datos =
                 documentoUsuario.data();
@@ -156,38 +261,41 @@ onAuthStateChanged(
             );
 
 
-            /* =====================================
-               NOMBRE
-            ===================================== */
+            /* =========================================
+               NOMBRE Y APELLIDO
+            ========================================= */
 
             const nombre =
                 datos.nombre || "";
+
 
             const apellido =
                 datos.apellido || "";
 
 
-            const nombreCompletoUsuario =
+            const nombreUsuario =
                 `${nombre} ${apellido}`.trim();
 
 
             nombreCompleto.textContent =
-                nombreCompletoUsuario ||
+                nombreUsuario ||
                 user.displayName ||
                 "Usuario";
 
 
             perfilNombre.textContent =
-                nombre || "-";
+                nombre ||
+                "-";
 
 
             perfilApellido.textContent =
-                apellido || "-";
+                apellido ||
+                "-";
 
 
-            /* =====================================
+            /* =========================================
                FECHA DE NACIMIENTO
-            ===================================== */
+            ========================================= */
 
             perfilNacimiento.textContent =
                 formatearFecha(
@@ -195,9 +303,142 @@ onAuthStateChanged(
                 );
 
 
-            /* =====================================
+            /* =========================================
+               CELULAR
+            ========================================= */
+
+            perfilCelular.textContent =
+                datos.Celular ??
+                datos.celular ??
+                "No registrado";
+
+
+            /* =========================================
+               PAÍS DE RESIDENCIA
+            ========================================= */
+
+            perfilPaisResidencia.textContent =
+                datos.PaisResidencia ??
+                datos.paisResidencia ??
+                "No registrado";
+
+
+            /* =========================================
+               FECHA DE REGISTRO
+            ========================================= */
+
+            perfilRegistro.textContent =
+                formatearFecha(
+                    datos.creadoEn
+                );
+
+
+            /* =========================================
+               PROGRAMAS DE EGRESO
+            ========================================= */
+
+            const programasEgreso =
+
+                datos.ProgramasEgreso ??
+
+                datos.programasEgreso ??
+
+                datos.ProgramaEgreso ??
+
+                datos.programaEgreso ??
+
+                [];
+
+
+            mostrarProgramasEgreso(
+                programasEgreso
+            );
+
+
+            /* =========================================
+               AFILIACIÓN
+            ========================================= */
+
+            const afiliado =
+
+                datos.Afiliado === true ||
+
+                datos.afiliado === true;
+
+
+            const estadoAfiliacion =
+
+                (
+                    datos.estadoAfiliacion ||
+                    "PENDIENTE"
+                )
+
+                .toString()
+
+                .trim()
+
+                .toUpperCase();
+
+
+            perfilEstadoAfiliacion.textContent =
+                estadoAfiliacion;
+
+
+            /* =========================================
+               ESTILO DEL ESTADO
+            ========================================= */
+
+            perfilEstadoAfiliacion.classList.remove(
+
+                "afiliacion-activa",
+
+                "afiliacion-inactiva",
+
+                "afiliacion-pendiente"
+
+            );
+
+
+            if (
+
+                afiliado &&
+
+                estadoAfiliacion === "ACTIVA"
+
+            ) {
+
+                perfilEstadoAfiliacion.classList.add(
+                    "afiliacion-activa"
+                );
+
+            }
+
+
+            else if (
+
+                estadoAfiliacion === "INACTIVA"
+
+            ) {
+
+                perfilEstadoAfiliacion.classList.add(
+                    "afiliacion-inactiva"
+                );
+
+            }
+
+
+            else {
+
+                perfilEstadoAfiliacion.classList.add(
+                    "afiliacion-pendiente"
+                );
+
+            }
+
+
+            /* =========================================
                FECHA DE VINCULACIÓN
-            ===================================== */
+            ========================================= */
 
             perfilVinculacion.textContent =
                 formatearFecha(
@@ -205,23 +446,53 @@ onAuthStateChanged(
                 );
 
 
-            /* =====================================
-               RENOVACIÓN
-            ===================================== */
+            /* =========================================
+               FECHA DE RENOVACIÓN
+            ========================================= */
 
             perfilRenovacion.textContent =
                 formatearFecha(
-                    datos.renovacionAfiliacion
+                    datos.fechaRenovacion
                 );
 
 
-            /* =====================================
+            /* =========================================
+               CERTIFICACIÓN
+            ========================================= */
+
+            if (
+
+                afiliado &&
+
+                estadoAfiliacion === "ACTIVA"
+
+            ) {
+
+                seccionCertificacion.classList.remove(
+                    "oculto"
+                );
+
+            }
+
+            else {
+
+                seccionCertificacion.classList.add(
+                    "oculto"
+                );
+
+            }
+
+
+            /* =========================================
                FOTO DE PERFIL
-            ===================================== */
+            ========================================= */
 
             const urlFoto =
+
                 datos.fotoPerfil ||
+
                 datos.fotoURL ||
+
                 user.photoURL;
 
 
@@ -230,19 +501,24 @@ onAuthStateChanged(
                 fotoPerfil.src =
                     urlFoto;
 
+
                 fotoPerfil.classList.remove(
                     "oculto"
                 );
+
 
                 fotoDefault.classList.add(
                     "oculto"
                 );
 
-            } else {
+            }
+
+            else {
 
                 fotoPerfil.classList.add(
                     "oculto"
                 );
+
 
                 fotoDefault.classList.remove(
                     "oculto"
@@ -251,9 +527,21 @@ onAuthStateChanged(
             }
 
 
-            mensajeCuenta.textContent = "";
+            /* =========================================
+               LIMPIAR MENSAJES
+            ========================================= */
 
-        } catch (error) {
+            mensajeCuenta.textContent =
+                "";
+
+
+            mensajeCuenta.classList.remove(
+                "mensaje-error"
+            );
+
+        }
+
+        catch (error) {
 
             console.error(
                 "Error cargando información del usuario:",
@@ -268,6 +556,7 @@ onAuthStateChanged(
             mensajeCuenta.textContent =
                 "No fue posible cargar la información de la cuenta.";
 
+
             mensajeCuenta.classList.add(
                 "mensaje-error"
             );
@@ -279,19 +568,282 @@ onAuthStateChanged(
 
 
 /* =====================================================
+   MOSTRAR PROGRAMAS DE EGRESO
+===================================================== */
+
+function mostrarProgramasEgreso(programas) {
+
+
+    if (!perfilProgramasEgreso) {
+
+        return;
+
+    }
+
+
+    /* LIMPIAR CONTENIDO */
+
+    perfilProgramasEgreso.innerHTML =
+        "";
+
+
+    let listaProgramas =
+        [];
+
+
+    /* =============================================
+       ARRAY DE FIRESTORE
+    ============================================= */
+
+    if (Array.isArray(programas)) {
+
+        listaProgramas =
+
+            programas
+
+                .map(
+
+                    programa =>
+
+                        String(
+                            programa
+                        ).trim()
+
+                )
+
+                .filter(
+
+                    programa =>
+
+                        programa !== ""
+
+                );
+
+    }
+
+
+    /* =============================================
+       COMPATIBILIDAD CON STRING
+    ============================================= */
+
+    else if (
+
+        typeof programas === "string" &&
+
+        programas.trim() !== ""
+
+    ) {
+
+        listaProgramas = [
+
+            programas.trim()
+
+        ];
+
+    }
+
+
+    /* =============================================
+       SIN PROGRAMAS
+    ============================================= */
+
+    if (
+        listaProgramas.length === 0
+    ) {
+
+        const vacio =
+            document.createElement(
+                "span"
+            );
+
+
+        vacio.className =
+            "programa-vacio";
+
+
+        vacio.textContent =
+            "No registrado";
+
+
+        perfilProgramasEgreso.appendChild(
+            vacio
+        );
+
+
+        return;
+
+    }
+
+
+    /* =============================================
+       SOLO UN PROGRAMA
+    ============================================= */
+
+    if (
+        listaProgramas.length === 1
+    ) {
+
+        const programa =
+            document.createElement(
+                "span"
+            );
+
+
+        programa.className =
+            "programa-unico";
+
+
+        programa.textContent =
+            listaProgramas[0];
+
+
+        perfilProgramasEgreso.appendChild(
+            programa
+        );
+
+
+        return;
+
+    }
+
+
+    /* =============================================
+       VARIOS PROGRAMAS
+    ============================================= */
+
+    const desplegable =
+        document.createElement(
+            "details"
+        );
+
+
+    desplegable.className =
+        "programas-desplegable";
+
+
+    /* =============================================
+       CABECERA DEL DESPLEGABLE
+    ============================================= */
+
+    const resumen =
+        document.createElement(
+            "summary"
+        );
+
+
+    resumen.className =
+        "programas-resumen";
+
+
+    resumen.textContent =
+        `Ver programas de egreso (${listaProgramas.length})`;
+
+
+    /* =============================================
+       LISTA
+    ============================================= */
+
+    const lista =
+        document.createElement(
+            "ul"
+        );
+
+
+    lista.className =
+        "programas-lista";
+
+
+    for (
+        const programa
+        of listaProgramas
+    ) {
+
+        const elemento =
+            document.createElement(
+                "li"
+            );
+
+
+        elemento.textContent =
+            programa;
+
+
+        lista.appendChild(
+            elemento
+        );
+
+    }
+
+
+    /* =============================================
+       ARMAR DESPLEGABLE
+    ============================================= */
+
+    desplegable.appendChild(
+        resumen
+    );
+
+
+    desplegable.appendChild(
+        lista
+    );
+
+
+    perfilProgramasEgreso.appendChild(
+        desplegable
+    );
+
+}
+
+
+/* =====================================================
    BOTÓN REALIZAR CAMBIOS
 ===================================================== */
 
 if (btnRealizarCambios) {
 
     btnRealizarCambios.addEventListener(
+
         "click",
+
         () => {
 
             window.location.href =
                 "configuracion.html";
 
         }
+
+    );
+
+}
+
+
+/* =====================================================
+   SOLICITAR CERTIFICACIÓN
+===================================================== */
+
+if (btnSolicitarCertificacion) {
+
+    btnSolicitarCertificacion.addEventListener(
+
+        "click",
+
+        () => {
+
+            alert(
+
+                "Solicitud de certificación iniciada.\n\n" +
+
+                "En el siguiente paso enviaremos un código " +
+
+                "temporal de verificación al correo " +
+
+                "electrónico registrado en tu cuenta."
+
+            );
+
+        }
+
     );
 
 }
@@ -303,48 +855,89 @@ if (btnRealizarCambios) {
 
 function formatearFecha(fecha) {
 
+
     if (!fecha) {
+
         return "No registrada";
+
     }
 
 
-    /* -----------------------------------------
-       FIRESTORE TIMESTAMP
-    ----------------------------------------- */
+    /* =============================================
+       TIMESTAMP DE FIRESTORE
+    ============================================= */
 
     if (
+
         typeof fecha === "object" &&
+
         typeof fecha.toDate === "function"
+
     ) {
 
-        return fecha
-            .toDate()
-            .toLocaleDateString(
-                "es-CO"
-            );
+        const fechaJS =
+            fecha.toDate();
+
+
+        return fechaJS.toLocaleDateString(
+
+            "es-CO",
+
+            {
+
+                day:
+                    "2-digit",
+
+                month:
+                    "2-digit",
+
+                year:
+                    "numeric"
+
+            }
+
+        );
 
     }
 
 
-    /* -----------------------------------------
+    /* =============================================
        STRING YYYY-MM-DD
-    ----------------------------------------- */
+    ============================================= */
 
     if (
+
         typeof fecha === "string" &&
-        /^\d{4}-\d{2}-\d{2}$/.test(fecha)
+
+        /^\d{4}-\d{2}-\d{2}$/.test(
+            fecha
+        )
+
     ) {
 
         const [
+
             año,
+
             mes,
+
             dia
-        ] = fecha.split("-");
+
+        ] =
+            fecha.split("-");
 
 
         return `${dia}/${mes}/${año}`;
+
     }
 
 
-    return String(fecha);
+    /* =============================================
+       CUALQUIER OTRO FORMATO
+    ============================================= */
+
+    return String(
+        fecha
+    );
+
 }

@@ -70,56 +70,69 @@
 
         <section class="cuenta-tarjeta">
 
-            <h1>
-                Mi cuenta
-            </h1>
+
+            <!-- ======================================
+                 ENCABEZADO DEL PERFIL
+            ======================================= -->
+
+            <div class="perfil-cabecera">
+
+                <h1>
+                    Mi cuenta
+                </h1>
 
 
-            <!-- FOTO -->
+                <!-- FOTO -->
 
-            <div class="perfil-foto-contenedor">
+                <div class="perfil-foto-contenedor">
 
-                <img
-                    id="fotoPerfil"
-                    class="perfil-foto oculto"
-                    alt="Foto de perfil"
-                >
+                    <img
+                        id="fotoPerfil"
+                        class="perfil-foto oculto"
+                        alt="Foto de perfil"
+                    >
 
-                <div
-                    id="fotoDefault"
-                    class="perfil-foto-default"
-                >
-                    👤
+                    <div
+                        id="fotoDefault"
+                        class="perfil-foto-default"
+                    >
+                        👤
+                    </div>
+
                 </div>
+
+
+                <!-- NOMBRE COMPLETO -->
+
+                <h2 id="nombreCompleto">
+                    Cargando información...
+                </h2>
+
+
+                <!-- CORREO -->
+
+                <p
+                    id="correoUsuario"
+                    class="correo-perfil"
+                >
+                </p>
 
             </div>
 
 
-            <!-- NOMBRE -->
-
-            <h2 id="nombreCompleto">
-                Cargando información...
-            </h2>
-
-
-            <!-- CORREO -->
-
-            <p
-                id="correoUsuario"
-                class="correo-perfil"
-            >
-            </p>
-
-
-            <!-- DATOS -->
+            <!-- ======================================
+                 INFORMACIÓN PERSONAL
+            ======================================= -->
 
             <div class="datos-perfil">
 
 
+                <!-- NOMBRE -->
+
                 <div class="dato-perfil">
 
                     <span class="dato-titulo">
-                        Nombre
+                        Nombre(s)
                     </span>
 
                     <span id="perfilNombre">
@@ -129,10 +142,12 @@
                 </div>
 
 
+                <!-- APELLIDOS -->
+
                 <div class="dato-perfil">
 
                     <span class="dato-titulo">
-                        Apellido
+                        Apellidos
                     </span>
 
                     <span id="perfilApellido">
@@ -141,6 +156,8 @@
 
                 </div>
 
+
+                <!-- FECHA DE NACIMIENTO -->
 
                 <div class="dato-perfil">
 
@@ -155,6 +172,91 @@
                 </div>
 
 
+                <!-- CELULAR -->
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Celular
+                    </span>
+
+                    <span id="perfilCelular">
+                        -
+                    </span>
+
+                </div>
+
+
+                <!-- PAÍS DE RESIDENCIA -->
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        País de residencia
+                    </span>
+
+                    <span id="perfilPaisResidencia">
+                        -
+                    </span>
+
+                </div>
+
+
+                <!-- FECHA DE REGISTRO -->
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Fecha de registro
+                    </span>
+
+                    <span id="perfilRegistro">
+                        -
+                    </span>
+
+                </div>
+
+
+                <!-- ======================================
+                     PROGRAMAS DE EGRESO
+                ======================================= -->
+
+                <div class="dato-perfil dato-programas">
+
+                    <span class="dato-titulo">
+                        Programa(s) de egreso
+                    </span>
+
+                    <div
+                        id="perfilProgramasEgreso"
+                        class="programas-egreso-contenedor"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+
+                <!-- ESTADO DE ASOCIACIÓN -->
+
+                <div class="dato-perfil">
+
+                    <span class="dato-titulo">
+                        Estado de asociación
+                    </span>
+
+                    <span
+                        id="perfilEstadoAfiliacion"
+                        class="estado-afiliacion"
+                    >
+                        -
+                    </span>
+
+                </div>
+
+
+                <!-- FECHA DE VINCULACIÓN -->
+
                 <div class="dato-perfil">
 
                     <span class="dato-titulo">
@@ -167,6 +269,8 @@
 
                 </div>
 
+
+                <!-- RENOVACIÓN -->
 
                 <div class="dato-perfil">
 
@@ -183,7 +287,9 @@
             </div>
 
 
-            <!-- BOTÓN -->
+            <!-- ======================================
+                 ACCIONES DEL PERFIL
+            ======================================= -->
 
             <div class="acciones-perfil">
 
@@ -197,6 +303,57 @@
 
             </div>
 
+
+            <!-- ======================================
+                 CERTIFICACIÓN
+            ======================================= -->
+
+            <section
+                id="seccionCertificacion"
+                class="seccion-certificacion oculto"
+            >
+
+                <div class="certificacion-icono">
+                    ✓
+                </div>
+
+                <div class="certificacion-contenido">
+
+                    <h3>
+                        Certificación de afiliación
+                    </h3>
+
+                    <p>
+                        Tu afiliación se encuentra activa.
+                        Puedes solicitar una certificación
+                        para acreditar tu vinculación con
+                        la Asociación de Egresados de la
+                        Universidad Tecnológica de Pereira.
+                    </p>
+
+                    <p class="texto-seguridad-certificacion">
+                        Por seguridad, cada solicitud requerirá
+                        un código temporal enviado al correo
+                        electrónico registrado en tu cuenta.
+                    </p>
+
+
+                    <button
+                        id="btnSolicitarCertificacion"
+                        class="boton-principal"
+                        type="button"
+                    >
+                        Solicitar certificación
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ======================================
+                 MENSAJES
+            ======================================= -->
 
             <p
                 id="mensajeCuenta"

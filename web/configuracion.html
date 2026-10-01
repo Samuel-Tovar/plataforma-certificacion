@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Configuración de la cuenta | ASEUTP</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header-principal">
+
+        <div class="logo">
+
+            <a href="index.html">
+
+                <img
+                    src="../assets/img/logo-aseutp.png"
+                    alt="Asociación de Egresados UTP"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav class="menu-principal">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="noticias.html">
+                Noticias y oportunidades
+            </a>
+
+            <div id="auth-area"></div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ======================================
+         CONFIGURACIÓN
+    ======================================= -->
+
+    <main class="configuracion-contenedor">
+
+        <section class="configuracion-tarjeta">
+
+            <h1>
+                Configuración de la cuenta
+            </h1>
+
+            <p class="configuracion-descripcion">
+                Actualiza la información asociada a tu perfil.
+            </p>
+
+
+            <form id="formConfiguracion">
+
+
+                <!-- ==============================
+                     CORREO
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        id="correo"
+                        type="email"
+                        disabled
+                    >
+
+                    <small>
+                        El correo electrónico no puede modificarse desde esta sección.
+                    </small>
+
+                </div>
+
+
+                <!-- ==============================
+                     NOMBRE
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="nombre">
+                        Nombre(s)
+                    </label>
+
+                    <input
+                        id="nombre"
+                        type="text"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     APELLIDOS
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="apellido">
+                        Apellidos
+                    </label>
+
+                    <input
+                        id="apellido"
+                        type="text"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     FECHA NACIMIENTO
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="fechaNacimiento">
+                        Fecha de nacimiento
+                    </label>
+
+                    <input
+                        id="fechaNacimiento"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     GÉNERO
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="genero">
+                        Género
+                    </label>
+
+                    <select id="genero">
+
+                        <option value="">
+                            Seleccione una opción
+                        </option>
+
+                        <option value="masculino">
+                            Masculino
+                        </option>
+
+                        <option value="femenino">
+                            Femenino
+                        </option>
+
+                        <option value="otro">
+                            Otro
+                        </option>
+
+                        <option value="prefiero-no-decirlo">
+                            Prefiero no indicarlo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ==============================
+                     CELULAR
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="celular">
+                        Celular
+                    </label>
+
+                    <input
+                        id="celular"
+                        type="tel"
+                        placeholder="Ej: 3212210573"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     PAÍS
+                =============================== -->
+
+                <div class="campo-configuracion">
+
+                    <label for="paisResidencia">
+                        País de residencia
+                    </label>
+
+                    <input
+                        id="paisResidencia"
+                        type="text"
+                        placeholder="Ej: Colombia"
+                    >
+
+                </div>
+
+
+                <!-- ==============================
+                     PROGRAMAS DE EGRESO
+                =============================== -->
+
+                <div class="campo-configuracion campo-programas-configuracion">
+
+                    <label>
+                        Programa(s) de egreso
+                    </label>
+
+                    <p class="ayuda-programas">
+                        Estos son los programas actualmente asociados a tu cuenta.
+                    </p>
+
+
+                    <div
+                        id="listaProgramas"
+                        class="lista-programas-configuracion"
+                    >
+                    </div>
+
+
+                    <!--
+                        TEMPORAL:
+                        mientras recibimos la lista oficial
+                        de programas de la UTP.
+                    -->
+
+                    <div class="agregar-programa">
+
+                        <input
+                            id="nuevoPrograma"
+                            type="text"
+                            placeholder="Agregar otro programa"
+                        >
+
+                        <button
+                            id="btnAgregarPrograma"
+                            type="button"
+                        >
+                            Agregar
+                        </button>
+
+                    </div>
+
+
+                    <small>
+                        Posteriormente este campo utilizará
+                        la lista oficial de programas.
+                    </small>
+
+                </div>
+
+
+                <!-- ==============================
+                     BOTONES
+                =============================== -->
+
+                <div class="acciones-configuracion">
+
+                    <button
+                        id="btnGuardarCambios"
+                        class="boton-principal"
+                        type="submit"
+                    >
+                        Guardar cambios
+                    </button>
+
+
+                    <button
+                        id="btnCancelar"
+                        class="boton-secundario"
+                        type="button"
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+
+                <!-- ==============================
+                     MENSAJES
+                =============================== -->
+
+                <p
+                    id="mensajeConfiguracion"
+                    class="mensaje-registro"
+                >
+                    Cargando información...
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ======================================= -->
+
+    <script
+        type="module"
+        src="js/auth-state.js">
+    </script>
+
+    <script
+        type="module"
+        src="js/configuracion.js">
+    </script>
+
+</body>
+
+</html>
